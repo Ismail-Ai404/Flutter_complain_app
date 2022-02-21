@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import './dummy_data.dart';
-import 'Make_complaint_item.dart';
+import '../dummy_data.dart';
+import '../Make_complaint_item.dart';
 
 final items = ['Beer', 'Meraaj'];
 const title = 'Who to complain against';

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import './make_complaint_screen.dart';
+import 'screens/make_complaint_screen.dart';
 
 void main() => runApp(MyApp());
 

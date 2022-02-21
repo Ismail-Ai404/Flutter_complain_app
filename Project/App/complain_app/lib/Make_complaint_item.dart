@@ -15,7 +15,7 @@ class MakeComplaintItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       padding: const EdgeInsets.all(20),
-      child: Text(name),
+      child: Text(name, style: Theme.of(context).textTheme.bodyText2),
       decoration: BoxDecoration(
         gradient: LinearGradient(
           colors: [

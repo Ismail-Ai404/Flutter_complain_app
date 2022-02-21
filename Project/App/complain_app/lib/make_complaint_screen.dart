@@ -15,6 +15,7 @@ class MakeComplaintScreen extends StatelessWidget {
         title: const Text('Looking for who to complain'),
       ),
       body: GridView(
+        padding: const EdgeInsets.all(25),
         children: DUMMY_SEARCH
             .map(
               (catData) => MakeComplaintItem(

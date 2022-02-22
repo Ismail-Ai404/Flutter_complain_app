@@ -9,6 +9,9 @@ const title = 'Who to complain against';
 class MakeComplaintScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    final routeArgs = ModalRoute.of(context).settings.arguments
+        as Map<String, String, String>;
+
     return Scaffold(
       appBar: AppBar(
         elevation: 15,
@@ -21,6 +24,7 @@ class MakeComplaintScreen extends StatelessWidget {
               (catData) => MakeComplaintItem(
                 color: catData.color,
                 name: catData.name,
+                dept: 'ECE',
               ),
             )
             .toList(),

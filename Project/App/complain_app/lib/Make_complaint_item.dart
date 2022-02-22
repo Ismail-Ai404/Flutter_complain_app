@@ -3,18 +3,29 @@ import './screens/send_complain_screen.dart';
 
 class MakeComplaintItem extends StatelessWidget {
   final String name;
-  //final String dept;
+  final String dept;
+  final String id;
   //final String lodger;
   final Color color;
 
   MakeComplaintItem({
-    @required this.color,
+    this.color,
     @required this.name,
+    @required this.dept,
+    this.id,
   });
 
+  // void selectComplain(BuildContext ctx) {
+  //   Navigator.of(ctx).push(
+  //       MaterialPageRoute(builder: (_) => SendComplainScreen(id, name, dept)));
+  // }
+
   void selectComplain(BuildContext ctx) {
-    Navigator.of(ctx)
-        .push(MaterialPageRoute(builder: (_) => SendComplainScreen()));
+    Navigator.of(ctx).pushNamed('/after-complainagainst-selected', arguments: {
+      //'id': id,
+      'department': dept,
+      'name': name,
+    });
   }
 
   @override

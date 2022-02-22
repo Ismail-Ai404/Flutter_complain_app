@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_complete_guide/screens/send_complain_screen.dart';
 
 import 'screens/make_complaint_screen.dart';
 
@@ -28,6 +29,9 @@ class MyApp extends StatelessWidget {
             )),
       ),
       home: MakeComplaintScreen(),
+      routes: {
+        '/after-complainagainst-selected': (ctx) => SendComplainScreen(),
+      },
     );
   }
 }

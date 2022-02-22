@@ -3,12 +3,22 @@
 //import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+enum Occupation {
+  Student,
+  Instrutor,
+  Staff,
+  Faculty,
+  AdminStaff,
+  SystemAdmin,
+}
+
 class Search {
   final String id;
   final String initial;
   final String departmant;
   final String name;
   final Color color;
+  final Occupation occupation;
 
   Search({
     this.id,
@@ -16,5 +26,6 @@ class Search {
     this.departmant,
     this.name,
     this.color,
+    this.occupation,
   });
 }

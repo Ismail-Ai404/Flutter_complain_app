@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-//import './screens/send_complain_screen.dart';
+import './screens/send_complain_screen.dart';
 
 class MakeComplaintItem extends StatelessWidget {
   final String name;
@@ -21,7 +21,7 @@ class MakeComplaintItem extends StatelessWidget {
   // }
 
   void selectComplain(BuildContext ctx) {
-    Navigator.of(ctx).pushNamed('/after-complainagainst-selected', arguments: {
+    Navigator.of(ctx).pushNamed(SendComplainScreen.routeName, arguments: {
       //'id': id,
       'department': dept,
       'name': name,

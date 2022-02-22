@@ -28,9 +28,11 @@ class MyApp extends StatelessWidget {
               fontWeight: FontWeight.bold,
             )),
       ),
-      home: MakeComplaintScreen(),
+      //home: MakeComplaintScreen(),
+      initialRoute: '/',
       routes: {
-        '/after-complainagainst-selected': (ctx) => SendComplainScreen(),
+        '/': (context) => MakeComplaintScreen(),
+        SendComplainScreen.routeName: (ctx) => SendComplainScreen(),
       },
     );
   }

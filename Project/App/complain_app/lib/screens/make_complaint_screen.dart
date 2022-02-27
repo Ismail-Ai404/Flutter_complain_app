@@ -8,6 +8,8 @@ const title = 'Who to complain against';
 String search;
 
 class MakeComplaintScreen extends StatelessWidget {
+  static const routeName = '/make-comaplaint-screen';
+
   @override
   Widget build(BuildContext context) {
     //final routeArgs =

@@ -19,8 +19,9 @@ var DUMMY_SEARCH = [
     name: 'Mohammad Ismail Hossain Siddiquee',
     departmant: 'ECE',
     initial: null,
-    color: Colors.yellow,
+    color: Colors.grey,
     occupation: Occupation.Student,
     imageUrl:
-'https://scontent.fdac39-1.fna.fbcdn.net/v/t1.6435-9/152279676_2870582923157160_3777866531039139595_n.jpg?_nc_cat=102&ccb=1-5&_nc_sid=174925&_nc_eui2=AeFm33d5qLDSo36DK3Ugsn49iSxEvQdpoKKJLES9B2mgohOvzJGSmRviwUJpsENsCYrQACKAgJLiu3trmHIHUvxY&_nc_ohc=Vhnsw8vr8RcAX-BQItD&_nc_ht=scontent.fdac39-1.fna&oh=00_AT-ZOlVd4BH1iUKT__ir9JO1C77cZS_Cir2iAv0JdM_cCQ&oe=6241365E',  ),
+        'https://scontent.fdac39-1.fna.fbcdn.net/v/t1.6435-9/152279676_2870582923157160_3777866531039139595_n.jpg?_nc_cat=102&ccb=1-5&_nc_sid=174925&_nc_eui2=AeFm33d5qLDSo36DK3Ugsn49iSxEvQdpoKKJLES9B2mgohOvzJGSmRviwUJpsENsCYrQACKAgJLiu3trmHIHUvxY&_nc_ohc=Vhnsw8vr8RcAX-BQItD&_nc_ht=scontent.fdac39-1.fna&oh=00_AT-ZOlVd4BH1iUKT__ir9JO1C77cZS_Cir2iAv0JdM_cCQ&oe=6241365E',
+  ),
 ];

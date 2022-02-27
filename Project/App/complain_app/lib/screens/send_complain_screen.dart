@@ -13,7 +13,7 @@ class SendComplainScreen extends StatelessWidget {
     final routeArgs =
         ModalRoute.of(context).settings.arguments as Map<String, String>;
     final name = routeArgs['name'];
-    //final id = routeArgs['id'];
+    final id = routeArgs['id'];
     final dept = routeArgs['department'];
 
     return Scaffold(
@@ -28,7 +28,7 @@ class SendComplainScreen extends StatelessWidget {
             children: [
               Text('$name'),
               Text('$dept'),
-              //Text('$id'),
+              Text('$id'),
             ],
           ),
         ),

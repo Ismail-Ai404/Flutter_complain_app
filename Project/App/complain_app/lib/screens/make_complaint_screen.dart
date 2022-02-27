@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import '../dummy_data.dart';
 import '../Make_complaint_item.dart';
 
-final items = ['Beer', 'Meraaj'];
 const title = 'Who to complain against';
 
 String search;
@@ -22,7 +21,7 @@ class MakeComplaintScreen extends StatelessWidget {
       body: Column(
         children: [
           Container(
-            padding: const EdgeInsets.all(10.0),
+            padding: const EdgeInsets.all(15.0),
             child: TextField(
               onSubmitted: (val) {
                 search = val;
@@ -42,19 +41,22 @@ class MakeComplaintScreen extends StatelessWidget {
           ),
           Container(
             padding: const EdgeInsets.all(20),
-            height: 300,
+            height: 650,
             child: GridView.count(
-              crossAxisCount: 2,
+              crossAxisCount: 1,
               mainAxisSpacing: 20,
-              crossAxisSpacing: 20,
+              crossAxisSpacing: 2,
 
-              padding: const EdgeInsets.all(25),
+              padding: const EdgeInsets.all(10),
               children: DUMMY_SEARCH
                   .map(
                     (catData) => MakeComplaintItem(
                       color: catData.color,
                       name: catData.name,
-                      dept: 'ECE',
+                      dept: catData.departmant,
+                      id: catData.id,
+                      imageUrl: catData.imageUrl,
+                      occupation: catData.occupation,
                     ),
                   )
                   .toList(),

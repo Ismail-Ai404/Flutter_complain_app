@@ -17,7 +17,7 @@ class Complaints {
   final File evidence;
   final Status status;
 
-  Complaints({
+  const Complaints({
     @required this.lodgerID,
     @required this.reviewID,
     @required this.accussedID,

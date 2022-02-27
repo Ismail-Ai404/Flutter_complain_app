@@ -19,13 +19,15 @@ class Search {
   final String name;
   final Color color;
   final Occupation occupation;
+  final String imageUrl;
 
-  Search({
+  const Search({
     this.id,
     this.initial,
     this.departmant,
     this.name,
     this.color,
     this.occupation,
+    this.imageUrl,
   });
 }

@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'notification_screen.dart';
 import './home_screen.dart';
 import './log_of_complains_screen.dart';
+import './drawer_screen.dart';
 
 class TabsScreen extends StatefulWidget {
   @override
@@ -24,7 +25,7 @@ class _TabsScreenState extends State<TabsScreen> {
       'title': 'Notification',
     },
   ];
-  int _selectedPageIndex = 1;
+  var _selectedPageIndex = 1;
 
   void _selectPage(int index) {
     setState(() {
@@ -38,13 +39,17 @@ class _TabsScreenState extends State<TabsScreen> {
       appBar: AppBar(
         title: Text(_pages[_selectedPageIndex]['title']),
       ),
+      drawer: DrawerScreen(),
       body: _pages[_selectedPageIndex]['page'],
       bottomNavigationBar: BottomNavigationBar(
         onTap: _selectPage,
         backgroundColor: Theme.of(context).primaryColor,
-        unselectedItemColor: Colors.white,
+        unselectedItemColor: Colors.white70,
         selectedItemColor: Theme.of(context).accentColor,
         currentIndex: _selectedPageIndex,
+        selectedFontSize: 12,
+        //unselectedFontSize: 7,
+
         type: BottomNavigationBarType.shifting,
         items: [
           BottomNavigationBarItem(

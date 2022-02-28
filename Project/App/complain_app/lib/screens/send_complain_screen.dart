@@ -24,11 +24,15 @@ class SendComplainScreen extends StatelessWidget {
       body: Padding(
         padding: const EdgeInsets.all(29.0),
         child: Center(
-          child: Column(
+          child: Row(
             children: [
-              Text('$name'),
-              Text('$dept'),
-              Text('$id'),
+              Column(
+                children: [
+                  Text('$name'),
+                  Text('$dept'),
+                  Text('$id'),
+                ],
+              ),
             ],
           ),
         ),

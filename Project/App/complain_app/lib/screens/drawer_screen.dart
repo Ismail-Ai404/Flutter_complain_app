@@ -153,6 +153,38 @@ class DrawerScreen extends StatelessWidget {
           ),
           _faculty(_accessLevel),
           _sytemAdmin(_accessLevel),
+          ListTile(
+            leading: Icon(
+              Icons.settings,
+              size: 40,
+              semanticLabel: 'Settings',
+            ),
+            title: Text(
+              'Settings',
+              style: TextStyle(
+                fontFamily: 'RobotoCondensed',
+                fontSize: 20,
+                fontWeight: FontWeight.normal,
+              ),
+            ),
+            onTap: () {},
+          ),
+          ListTile(
+            leading: Icon(
+              Icons.logout_rounded,
+              size: 40,
+              semanticLabel: 'Logout',
+            ),
+            title: Text(
+              'Logout',
+              style: TextStyle(
+                fontFamily: 'RobotoCondensed',
+                fontSize: 20,
+                fontWeight: FontWeight.normal,
+              ),
+            ),
+            onTap: () {},
+          ),
         ],
       ),
     );

@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_complete_guide/screens/home_screen.dart';
-import 'package:flutter_complete_guide/screens/send_complain_screen.dart';
+import 'package:flutter_complete_guide/screens/tabs_screen.dart';
+import './screens/home_screen.dart';
+import './screens/send_complain_screen.dart';
 
-import 'screens/make_complaint_screen.dart';
+import './screens/make_complaint_screen.dart';
+import './screens/notification_screen.dart';
 
 void main() => runApp(MyApp());
 
@@ -12,8 +14,8 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'DeliMeals',
       theme: ThemeData(
-        primarySwatch: Colors.pink,
-        accentColor: Colors.amber,
+        primarySwatch: Colors.purple,
+        accentColor: Colors.blueGrey[900],
         canvasColor: Color.fromRGBO(255, 254, 229, 1),
         fontFamily: 'Raleway',
         textTheme: ThemeData.light().textTheme.copyWith(
@@ -33,7 +35,7 @@ class MyApp extends StatelessWidget {
       initialRoute: '/',
       routes: {
         Home.routeToMakeAComplaint: (context) => MakeComplaintScreen(),
-        '/': (ctx) => Home(),
+        '/': (ctx) => TabsScreen(),
         SendComplainScreen.routeName: (ctx) => SendComplainScreen(),
       },
     );

@@ -47,8 +47,8 @@ a {
 
 button {
   border-radius: 20px;
-  border: 1px solid #ff4b2b;
-  background-color: #ff4b2b;
+  border: 1px solid #0bbcf1;
+  background-color: #0bbcf1;
   color: #fff;
   font-size: 12px;
   font-weight: bold;
@@ -93,7 +93,7 @@ input {
 
 input:focus-visible {
   outline: none;
-  border: 1px solid #ff4b2b;
+  border: 1px solid #0bbcf1;
 }
 
 .container {
@@ -170,7 +170,7 @@ input:focus-visible {
 
 .overlay {
   background: #ff416c;
-  background: linear-gradient(to right, #ff4b2b, #ff416c);
+  background: linear-gradient(to right, #0c45e0, #0bbcf1);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: 0 0;
@@ -234,6 +234,6 @@ input:focus-visible {
 }
 
 a.social:hover {
-  background: linear-gradient(to right, #ff4b2b, #ff416c);
+  background: linear-gradient(to right, #0c45e0, #0bbcf1);
   color: #fff;
 }

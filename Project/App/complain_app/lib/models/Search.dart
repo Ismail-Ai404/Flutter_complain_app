@@ -20,14 +20,16 @@ class Search {
   final Color color;
   final Occupation occupation;
   final String imageUrl;
+  final bool canReview;
 
   const Search({
-    this.id,
-    this.initial,
-    this.departmant,
-    this.name,
-    this.color,
-    this.occupation,
-    this.imageUrl,
+    @required this.id,
+    @required this.initial,
+    @required this.departmant,
+    @required this.name,
+    @required this.color,
+    @required this.occupation,
+    @required this.imageUrl,
+    @required this.canReview,
   });
 }

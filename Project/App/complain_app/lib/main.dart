@@ -4,7 +4,8 @@ import './screens/home_screen.dart';
 import './screens/send_complain_screen.dart';
 
 import './screens/make_complaint_screen.dart';
-import './screens/notification_screen.dart';
+//import './screens/notification_screen.dart';
+import './screens/auth_screen.dart';
 
 void main() => runApp(MyApp());
 
@@ -32,8 +33,9 @@ class MyApp extends StatelessWidget {
             )),
       ),
       //home: MakeComplaintScreen(),
-      initialRoute: '/',
+      initialRoute: '/hey',
       routes: {
+        '/hey': (context) => AuthScreen(),
         Home.routeToMakeAComplaint: (context) => MakeComplaintScreen(),
         '/': (ctx) => TabsScreen(),
         SendComplainScreen.routeName: (ctx) => SendComplainScreen(),

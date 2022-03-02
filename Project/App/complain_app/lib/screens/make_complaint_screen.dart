@@ -60,6 +60,7 @@ class MakeComplaintScreen extends StatelessWidget {
                         id: catData.id,
                         imageUrl: catData.imageUrl,
                         occupation: catData.occupation,
+                        canReview: catData.canReview,
                       ),
                     )
                     .toList(),

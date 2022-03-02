@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import './models/Search.dart';
 import './screens/send_complain_screen.dart';
 
-class MakeComplaintItem extends StatelessWidget {
+class MakeComplaintItem extends StatefulWidget {
   final String name;
   final String dept;
   final String id;
@@ -11,17 +11,32 @@ class MakeComplaintItem extends StatelessWidget {
   final String imageUrl;
   final Color color;
   final Occupation occupation;
+  final bool canReview;
+
+  // final String name2;
+  // final String dept2;
+  // final String id2;
+  // //final String lodger;
+  // final String imageUrl2;
+  // final Color color2;
+  // final Occupation occupation2;
 
   MakeComplaintItem(
-      {this.color,
+      {@required this.color,
       @required this.name,
       @required this.dept,
       @required this.id,
       @required this.imageUrl,
-      @required this.occupation});
+      @required this.occupation,
+      @required this.canReview});
 
+  @override
+  State<MakeComplaintItem> createState() => _MakeComplaintItemState();
+}
+
+class _MakeComplaintItemState extends State<MakeComplaintItem> {
   String get occupationText {
-    switch (occupation) {
+    switch (widget.occupation) {
       case Occupation.AdminStaff:
         return 'Admin Staff';
       case Occupation.Faculty:
@@ -51,16 +66,23 @@ class MakeComplaintItem extends StatelessWidget {
     }
   }
 
-  // void selectComplain(BuildContext ctx) {
-  //   Navigator.of(ctx).push(
-  //       MaterialPageRoute(builder: (_) => SendComplainScreen(id, name, dept)));
-  // }
+  bool isReview = false;
+  void toReviewSearch() {
+    isReview = true;
+  }
 
+  @override
+  void setState(VoidCallback fn) {
+    super.setState(fn);
+  }
+
+  // void selectComplain(BuildContext ctx) {
   void selectComplain(BuildContext ctx) {
     Navigator.of(ctx).pushNamed(SendComplainScreen.routeName, arguments: {
-      'id': id,
-      'department': dept,
-      'name': name,
+      'id': widget.id,
+      'department': widget.dept,
+      'name': widget.name,
+      'imageUrl': widget.imageUrl,
     });
   }
 
@@ -89,7 +111,7 @@ class MakeComplaintItem extends StatelessWidget {
                       topRight: Radius.circular(15),
                     ),
                     child: Image.network(
-                      imageUrl,
+                      widget.imageUrl,
                       height: 200,
                       width: double.infinity,
                       fit: BoxFit.cover,
@@ -108,7 +130,7 @@ class MakeComplaintItem extends StatelessWidget {
                         SizedBox(
                           width: 6,
                         ),
-                        Text(name),
+                        Text(widget.name),
                       ],
                     ),
                     Row(
@@ -130,7 +152,7 @@ class MakeComplaintItem extends StatelessWidget {
                         SizedBox(
                           width: 6,
                         ),
-                        Text('$id'),
+                        Text('${widget.id}'),
                       ],
                     ),
                     Row(
@@ -141,7 +163,7 @@ class MakeComplaintItem extends StatelessWidget {
                         SizedBox(
                           width: 6,
                         ),
-                        Text(dept),
+                        Text(widget.dept),
                       ],
                     ),
                   ],
@@ -154,8 +176,8 @@ class MakeComplaintItem extends StatelessWidget {
         decoration: BoxDecoration(
           gradient: LinearGradient(
             colors: [
-              color.withOpacity(0.7),
-              color,
+              widget.color.withOpacity(0.7),
+              widget.color,
             ],
             begin: Alignment.topLeft,
             end: Alignment.bottomRight,

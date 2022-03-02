@@ -15,6 +15,7 @@ class SendComplainScreen extends StatelessWidget {
     final name = routeArgs['name'];
     final id = routeArgs['id'];
     final dept = routeArgs['department'];
+    final imageUrl = routeArgs['imageUrl'];
 
     return Scaffold(
       appBar: AppBar(
@@ -23,9 +24,25 @@ class SendComplainScreen extends StatelessWidget {
       ),
       body: Padding(
         padding: const EdgeInsets.all(29.0),
-        child: Center(
+        child: Container(
           child: Row(
             children: [
+              Container(
+                height: 200,
+                width: 50,
+                child: ClipRRect(
+                  borderRadius: BorderRadius.only(
+                    topLeft: Radius.circular(15),
+                    topRight: Radius.circular(15),
+                  ),
+                  child: Image.network(
+                    imageUrl,
+                    height: 200,
+                    width: 50,
+                    fit: BoxFit.cover,
+                  ),
+                ),
+              ),
               Column(
                 children: [
                   Text('$name'),

@@ -20,8 +20,8 @@ class AuthScreen extends StatelessWidget {
             decoration: BoxDecoration(
               gradient: LinearGradient(
                 colors: [
-                  Color.fromRGBO(215, 117, 255, 1).withOpacity(0.5),
-                  Color.fromRGBO(255, 188, 117, 1).withOpacity(0.9),
+                  Color.fromARGB(255, 134, 84, 214).withOpacity(0.3),
+                  Color.fromARGB(255, 51, 30, 30).withOpacity(0.7),
                 ],
                 begin: Alignment.topLeft,
                 end: Alignment.bottomRight,
@@ -47,7 +47,7 @@ class AuthScreen extends StatelessWidget {
                       // ..translate(-10.0),
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(20),
-                        color: Colors.deepOrange.shade900,
+                        color: Color.fromARGB(255, 81, 12, 191),
                         boxShadow: [
                           BoxShadow(
                             blurRadius: 8,
@@ -209,7 +209,8 @@ class _AuthCardState extends State<AuthCard> {
                           validator: (value) {
                             if (value.isEmpty ||
                                 !value.contains('01') ||
-                                value.length == 11) {
+                                value.length == 11 ||
+                                value.length == 13) {
                               return 'Invalid number!';
                             }
                             return null;
@@ -224,9 +225,9 @@ class _AuthCardState extends State<AuthCard> {
                         obscureText: true,
                         controller: _passwordController,
                         validator: (value) {
-                          if (value.isEmpty || value.length < 5) {
-                            return 'Password is too short!';
-                          }
+                          if (value.isEmpty) return 'Password cannot be empty!';
+                          if (value.length < 5) return 'Password too short';
+
                           return null;
                         },
                         onSaved: (value) {

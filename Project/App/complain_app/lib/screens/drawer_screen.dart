@@ -196,9 +196,13 @@ class DrawerScreen extends StatelessWidget {
                         onPressed: () => Navigator.of(ctx).pop(false),
                         child: Text('No')),
                     TextButton(
-                        onPressed: (() => Navigator.of(ctx)
-                            .pushReplacementNamed(logoutroute)),
-                        child: Text('Yes'))
+                      onPressed: (() => {
+                            Navigator.of(ctx).pop(true),
+                            Navigator.of(ctx).pushReplacementNamed(logoutroute)
+                          }),
+                      child: Text('Yes'),
+                      //style: ButtonStyle( Colors.red),
+                    )
                   ],
                 ),
               );

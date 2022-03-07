@@ -186,7 +186,22 @@ class DrawerScreen extends StatelessWidget {
               ),
             ),
             onTap: () {
-              Navigator.of(context).pushReplacementNamed(logoutroute);
+              showDialog(
+                context: context,
+                builder: (ctx) => AlertDialog(
+                  title: Text('Are you sure?'),
+                  content: Text('Logout'),
+                  actions: [
+                    TextButton(
+                        onPressed: () => Navigator.of(ctx).pop(false),
+                        child: Text('No')),
+                    TextButton(
+                        onPressed: (() => Navigator.of(ctx)
+                            .pushReplacementNamed(logoutroute)),
+                        child: Text('Yes'))
+                  ],
+                ),
+              );
             },
           ),
         ],

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_complete_guide/screens/drawer_screen.dart';
 import 'package:flutter_complete_guide/screens/tabs_screen.dart';
 import './screens/home_screen.dart';
 import './screens/send_complain_screen.dart';
@@ -33,9 +34,10 @@ class MyApp extends StatelessWidget {
             )),
       ),
       //home: MakeComplaintScreen(),
-      initialRoute: '/hey',
+      initialRoute: '/',
       routes: {
         '/hey': (context) => AuthScreen(),
+        DrawerScreen().logoutroute: (context) => AuthScreen(),
         Home.routeToMakeAComplaint: (context) => MakeComplaintScreen(),
         '/': (ctx) => TabsScreen(),
         SendComplainScreen.routeName: (ctx) => SendComplainScreen(),

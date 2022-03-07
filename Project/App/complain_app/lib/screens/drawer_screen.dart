@@ -4,6 +4,8 @@ class DrawerScreen extends StatelessWidget {
   static const _imageUrl =
       'https://cdn.pixabay.com/photo/2020/01/21/16/56/owl-4783407_960_720.png';
 
+  final logoutroute = "/fromdrawerLogoutToLogin";
+
   static var _accessLevel = 3;
   Widget _faculty(int x) {
     if (x == 2 || x == 3) {
@@ -183,7 +185,9 @@ class DrawerScreen extends StatelessWidget {
                 fontWeight: FontWeight.normal,
               ),
             ),
-            onTap: () {},
+            onTap: () {
+              Navigator.of(context).pushReplacementNamed(logoutroute);
+            },
           ),
         ],
       ),

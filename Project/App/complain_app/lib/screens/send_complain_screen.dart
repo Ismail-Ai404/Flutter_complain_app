@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:lint/lint.dart';
 
 class SendComplainScreen extends StatelessWidget {
   // final String id;

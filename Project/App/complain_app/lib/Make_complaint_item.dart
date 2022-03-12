@@ -109,7 +109,7 @@ class _MakeComplaintItemState extends State<MakeComplaintItem> {
             children: [
               Stack(
                 children: <Widget>[
-                  const ClipRRect(
+                  ClipRRect(
                     borderRadius: BorderRadius.only(
                       topLeft: Radius.circular(15),
                       topRight: Radius.circular(15),

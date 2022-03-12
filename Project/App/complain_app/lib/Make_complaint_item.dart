@@ -21,14 +21,15 @@ class MakeComplaintItem extends StatefulWidget {
   // final Color color2;
   // final Occupation occupation2;
 
-  MakeComplaintItem(
-      {@required this.color,
-      @required this.name,
-      @required this.dept,
-      @required this.id,
-      @required this.imageUrl,
-      @required this.occupation,
-      @required this.canReview});
+  const MakeComplaintItem({
+    @required this.color,
+    @required this.name,
+    @required this.dept,
+    @required this.id,
+    @required this.imageUrl,
+    @required this.occupation,
+    @required this.canReview,
+  });
 
   @override
   State<MakeComplaintItem> createState() => _MakeComplaintItemState();
@@ -78,12 +79,15 @@ class _MakeComplaintItemState extends State<MakeComplaintItem> {
 
   // void selectComplain(BuildContext ctx) {
   void selectComplain(BuildContext ctx) {
-    Navigator.of(ctx).pushNamed(SendComplainScreen.routeName, arguments: {
-      'id': widget.id,
-      'department': widget.dept,
-      'name': widget.name,
-      'imageUrl': widget.imageUrl,
-    });
+    Navigator.of(ctx).pushNamed(
+      SendComplainScreen.routeName,
+      arguments: {
+        'id': widget.id,
+        'department': widget.dept,
+        'name': widget.name,
+        'imageUrl': widget.imageUrl,
+      },
+    );
   }
 
   @override
@@ -100,12 +104,12 @@ class _MakeComplaintItemState extends State<MakeComplaintItem> {
             borderRadius: BorderRadius.circular(15),
           ),
           elevation: 40,
-          margin: EdgeInsets.all(10),
+          margin: const EdgeInsets.all(10),
           child: Column(
             children: [
               Stack(
                 children: <Widget>[
-                  ClipRRect(
+                  const ClipRRect(
                     borderRadius: BorderRadius.only(
                       topLeft: Radius.circular(15),
                       topRight: Radius.circular(15),

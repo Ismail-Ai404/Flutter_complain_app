@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
-import 'notification_screen.dart';
+import './drawer_screen.dart';
+import './notification_screen.dart';
 import './home_screen.dart';
 import './log_of_complains_screen.dart';
-import './drawer_screen.dart';
 
 class TabsScreen extends StatefulWidget {
   @override
@@ -54,17 +54,17 @@ class _TabsScreenState extends State<TabsScreen> {
         items: [
           BottomNavigationBarItem(
             backgroundColor: Theme.of(context).primaryColor,
-            icon: Icon(Icons.history_sharp),
+            icon: const Icon(Icons.history_sharp),
             label: 'Log of complains',
           ),
           BottomNavigationBarItem(
             backgroundColor: Theme.of(context).primaryColor,
-            icon: Icon(Icons.home),
+            icon: const Icon(Icons.home),
             label: 'Home',
           ),
           BottomNavigationBarItem(
             backgroundColor: Theme.of(context).primaryColor,
-            icon: Icon(Icons.notifications),
+            icon: const Icon(Icons.notifications),
             label: 'Notification',
           ),
         ],

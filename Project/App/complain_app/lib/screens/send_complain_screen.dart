@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:lint/lint.dart';
 
 class SendComplainScreen extends StatelessWidget {
   // final String id;
   // final String name;
   // final String dept;
   static const routeName = '/after-complainagainst-selected';
+  static const routeComplainToSpeech = 'after-complain-to-speech';
 
   // SendComplainScreen(this.id, this.name, this.dept);
 
@@ -23,35 +25,35 @@ class SendComplainScreen extends StatelessWidget {
         title: const Text('Let\'s send that complaint'),
       ),
       body: Padding(
-        padding: const EdgeInsets.all(29.0),
-        child: Container(
-          child: Row(
-            children: [
-              Container(
-                height: 200,
-                width: 50,
-                child: ClipRRect(
-                  borderRadius: BorderRadius.only(
-                    topLeft: Radius.circular(15),
-                    topRight: Radius.circular(15),
-                  ),
-                  child: Image.network(
-                    imageUrl,
-                    height: 200,
-                    width: 50,
-                    fit: BoxFit.cover,
-                  ),
-                ),
-              ),
-              Column(
-                children: [
-                  Text('$name'),
-                  Text('$dept'),
-                  Text('$id'),
-                ],
-              ),
-            ],
-          ),
+        padding: EdgeInsets.all(29.0),
+        child: Column(
+          children: [
+            Text('$name'),
+            Text('$dept'),
+            Text('$id'),
+            ElevatedButton(
+                onPressed: () =>
+                    Navigator.of(context).pushNamed(routeComplainToSpeech),
+                child: Text("Speech")),
+          ],
+          // child: Row(
+          //   children: [
+          //     Container(
+          //       height: 200,
+          //       width: 50,
+          //       // child: ClipRRect(
+          //       //   borderRadius: BorderRadius.only(
+          //       //     topLeft: Radius.circular(15),
+          //       //     topRight: Radius.circular(15),
+          //       //   ),
+          //       //   child: Image.network(
+          //       //     imageUrl,
+          //       //     height: 200,
+          //       //     width: 50,
+          //       //     fit: BoxFit.cover,
+          //       //   ),
+          //       // ),
+          //     ),
         ),
       ),
     );

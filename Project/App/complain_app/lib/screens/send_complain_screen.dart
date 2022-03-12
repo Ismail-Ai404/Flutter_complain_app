@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:lint/lint.dart';
 
 class SendComplainScreen extends StatelessWidget {
   // final String id;
@@ -24,7 +25,7 @@ class SendComplainScreen extends StatelessWidget {
         title: const Text('Let\'s send that complaint'),
       ),
       body: Padding(
-        padding: const EdgeInsets.all(29.0),
+        padding: EdgeInsets.all(29.0),
         child: Column(
           children: [
             Text('$name'),

@@ -11,35 +11,41 @@ class SpeechScreen extends StatefulWidget {
 class _SpeechScreenState extends State<SpeechScreen> {
   final Map<String, HighlightedWord> _highlights = {
     'flutter': HighlightedWord(
-      onTap: () => print('flutter'),
+      onTap: () => {},
       textStyle: const TextStyle(
         color: Colors.blue,
         fontWeight: FontWeight.bold,
       ),
     ),
     'voice': HighlightedWord(
-      onTap: () => print('voice'),
+      // onTap: () => print('voice'),
+      onTap: () => {},
       textStyle: const TextStyle(
         color: Colors.green,
         fontWeight: FontWeight.bold,
       ),
     ),
     'subscribe': HighlightedWord(
-      onTap: () => print('professor'),
+      // onTap: () => print('professor'),
+      onTap: () => {},
       textStyle: const TextStyle(
         color: Colors.red,
         fontWeight: FontWeight.bold,
       ),
     ),
     'like': HighlightedWord(
-      onTap: () => print('problem'),
+      // onTap: () => print('problem'),
+      onTap: () => {},
+
       textStyle: const TextStyle(
         color: Colors.blueAccent,
         fontWeight: FontWeight.bold,
       ),
     ),
     'comment': HighlightedWord(
-      onTap: () => print('evidence'),
+      // onTap: () => print('evidence'),
+      onTap: () => {},
+
       textStyle: const TextStyle(
         color: Colors.green,
         fontWeight: FontWeight.bold,
@@ -97,11 +103,11 @@ class _SpeechScreenState extends State<SpeechScreen> {
 
   Future<void> _listen() async {
     if (!_isListening) {
-      bool available = await _speech.initialize(
-        //onError: (errorNotification) => print(errorNotification.toString()),
-        onStatus: (val) => print('onStatus: $val'),
-        onError: (val) => print('onError: $val'),
-      );
+      final available = await _speech.initialize(
+          //onError: (errorNotification) => print(errorNotification.toString()),
+          // onStatus: (val) => print('onStatus: $val'),
+          // onError: (val) => print('onError: $val'),
+          );
       if (available) {
         setState(() => _isListening = true);
         _speech.listen(

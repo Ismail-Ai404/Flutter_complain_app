@@ -8,6 +8,8 @@ const title = 'Who to complain against';
 String search;
 
 class MakeComplaintScreen extends StatelessWidget {
+  final searchType;
+  MakeComplaintScreen(this.searchType);
   static const routeName = '/make-comaplaint-screen';
 
   @override
@@ -16,10 +18,7 @@ class MakeComplaintScreen extends StatelessWidget {
     // ModalRoute.of(context).settings.arguments as Map<String, String>;
 
     return Scaffold(
-      appBar: AppBar(
-        elevation: 15,
-        title: const Text('Looking for who to complain'),
-      ),
+      appBar: searchScreen(),
       body: SingleChildScrollView(
         child: Column(
           children: [
@@ -76,6 +75,13 @@ class MakeComplaintScreen extends StatelessWidget {
           ],
         ),
       ),
+    );
+  }
+
+  AppBar searchScreen() {
+    return AppBar(
+      elevation: 15,
+      title: const Text('Looking for who to complain'),
     );
   }
 }

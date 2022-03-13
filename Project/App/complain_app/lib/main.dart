@@ -5,7 +5,6 @@ import './screens/drawer_screen.dart';
 import './screens/home_screen.dart';
 import './screens/make_complaint_screen.dart';
 import './screens/send_complain_screen.dart';
-import './screens/speech_screen.dart';
 import './screens/tabs_screen.dart';
 
 //import './screens/notification_screen.dart';
@@ -41,10 +40,11 @@ class MyApp extends StatelessWidget {
       routes: {
         '/hey': (context) => AuthScreen(),
         DrawerScreen().logoutroute: (context) => AuthScreen(),
-        Home.routeToMakeAComplaint: (context) => MakeComplaintScreen(),
+        Home.routeToMakeAComplaint: (context) => MakeComplaintScreen(2),
         '/': (ctx) => TabsScreen(),
         SendComplainScreen.routeName: (ctx) => SendComplainScreen(),
-        SendComplainScreen.routeComplainToSpeech: (context) => SpeechScreen(),
+        SendComplainScreen.routeComplainToSpeech: (context) =>
+            SendComplainScreen(),
       },
       //dsjnkjn
     );

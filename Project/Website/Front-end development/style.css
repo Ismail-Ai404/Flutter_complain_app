@@ -18,6 +18,9 @@ body {
   margin: -20px 0 50px;
 }
 
+.logo {
+  width: 200px;
+}
 h1 {
   font-weight: bold;
   margin: 0;

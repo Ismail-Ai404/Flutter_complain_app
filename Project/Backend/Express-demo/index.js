@@ -42,12 +42,12 @@ app.post("/api/courses", (req, res) => {
           res.status(400).send(result.error.details[0].message);
           return;
      }
-     if (!req.body.name || req.body.name.length < 3) {
-          res.status(400).send(
-               "Name is required and shpuld be greather than 3 "
-          );
-          return;
-     }
+     // if (!req.body.name || req.body.name.length < 3) {
+     //      res.status(400).send(
+     //           "Name is required and shpuld be greather than 3 "
+     //      );
+     //      return;
+     // }
 
      const course = {
           id: courses.length + 1,

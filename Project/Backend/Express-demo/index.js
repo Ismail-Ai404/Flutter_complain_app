@@ -36,6 +36,12 @@ app.get("/api/courses/:id", (req, res) => {
 });
 
 app.post("/api/courses", (req, res) => {
+     const schema = Joi.object({ name: Joi.string().min(3).required() });
+     const result = schema.validate(req.body);
+     if (result.error) {
+          res.status(400).send(result.error.details[0].message);
+          return;
+     }
      if (!req.body.name || req.body.name.length < 3) {
           res.status(400).send(
                "Name is required and shpuld be greather than 3 "

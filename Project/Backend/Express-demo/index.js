@@ -6,8 +6,10 @@ app.get("/", (req, res) => {
 });
 
 app.get("/api/courses", (req, res) => {
-     res.send([1, 2, 3]);
+     res.send([1, 2, 3, 4, 5, 6]);
 });
 
-app.listen(3000, () => console.log("listening"));
+// Environment variable : PORT
+const port = process.env.PORT || 3000;
+app.listen(port, () => console.log(`listening ${port}`));
 // app.post();

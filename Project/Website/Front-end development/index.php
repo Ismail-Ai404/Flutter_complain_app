@@ -13,7 +13,9 @@ $conn = mysqli_connect('localhost', 'root', '', 'user_db');
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login & Registration Page Design Html ,css & Javascript </title>
+    <title>Login & Registration Page </title>
+    <meta name="google-signin-client_id" content="174371317892-6puuclt3plqikgljl68a4icvconl3f2i.apps.googleusercontent.com">
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
     <link rel="stylesheet" href="style.css">
 </head>
@@ -24,9 +26,7 @@ $conn = mysqli_connect('localhost', 'root', '', 'user_db');
             <form action="">
                 <h1>Create Account</h1>
                 <div class="social-container">
-                    <a href="" class="social"><i class="fab fa-facebook-f"></i></a>
-                    <a href="" class="social"><i class="fab fa-google"></i></a>
-                    <a href="" class="social"><i class="fab fa-linkedin-in"></i></a>
+                    <div class="g-signin2"></div>
                 </div>
                 <span>Or use your email for Registration</span>
                 <input type="text" placeholder="Name">
@@ -42,9 +42,9 @@ $conn = mysqli_connect('localhost', 'root', '', 'user_db');
             <form action="">
                 <h1>Sign In</h1>
                 <div class="social-container">
-                    <a href="" class="social"><i class="fab fa-facebook-f"></i></a>
-                    <a href="" class="social"><i class="fab fa-google"></i></a>
-                    <a href="" class="social"><i class="fab fa-linkedin-in"></i></a>
+
+                    <div class="g-signin2"></div>
+
                 </div>
                 <span>or use your account</span>
                 <input type="email" placeholder="Email">

@@ -1,7 +1,67 @@
-<html>
+!DOCTYPE html>
+<html lang="en">
 
 <head>
-    <h1>COMPLAIN page</h1>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="complaint.css" />
+    <title>Complaint Box</title>
 </head>
+
+<body>
+    <div class="complaintBox">
+        <form action="" method="post">
+            <div class="complaintBox-inner">
+                <div class="header">
+                    <p>NSU Complaint System</p>
+                </div>
+                <div class="search">
+                    <div>
+                        <datalist id="suggestions">
+                            <option>First option</option>
+                            <option>Second Option</option>
+                        </datalist>
+                        <input autocomplete="on" list="suggestions" placeholder="Search Accuse" />
+                        <span>Select</span>
+                    </div>
+                </div>
+
+                <div class="type-complaint">
+                    <span>Complaint Details</span>
+                    <textarea rows="4" placeholder="Type Complaint Here"></textarea>
+                </div>
+                <div class="mic-converter">
+                    <div class="mic-btn">
+                        <a href=""><img src="img/mic.png" alt="" /></a>
+                    </div>
+                    <div class="arrow">
+                        <img src="img/right-arrow.png" alt="" />
+                    </div>
+                    <div class="converted-field">
+                        <span>Converted Text</span>
+                        <textarea rows="4"></textarea>
+                    </div>
+                </div>
+                <div class="file-upload">
+                    <label>Submit Evidence   <input type="file" id="myFile" name="filename" /></label>
+                </div>
+                <div class="choose-reviewer">
+                    <span>Choose Reviewer</span>
+                    <div>
+                        <datalist id="suggestions">
+                            <option>First option</option>
+                            <option>Second Option</option>
+                        </datalist>
+                        <input autocomplete="on" list="suggestions" />
+                    </div>
+                </div>
+                <div class="submit-btn">
+                    <input type="submit" value="Submit" />
+                </div>
+            </div>
+        </form>
+    </div>
+</body>
 
 </html>

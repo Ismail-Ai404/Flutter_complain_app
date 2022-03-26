@@ -1,0 +1,121 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  font-family: "Lexend Deca", sans-serif;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-image: url("img/NSU_lib.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+textarea {
+  resize: none;
+}
+
+.header {
+  color: white;
+  font-size: 1.2rem;
+}
+
+.complaintBox {
+  background: linear-gradient(to right, #0c45e0, #0bbcf1);
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 85vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+}
+
+.complaintBox-inner {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 0 100px;
+  gap: 20px;
+}
+
+.mic-converter {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 500px;
+}
+
+.arrow img {
+  width: 30px;
+}
+
+.mic-btn img {
+  width: 60px;
+}
+
+.search input {
+  border: 0;
+  border-radius: 5px;
+  padding: 15px;
+  font-size: 1rem;
+  outline: none;
+  width: 100%;
+}
+
+.search {
+  width: 500px;
+  position: relative;
+}
+
+.search span {
+  background-color: rgb(117, 49, 243);
+  color: white;
+  padding: 15px 15px;
+  border-radius: 0 5px 5px 0;
+  position: absolute;
+  right: 0;
+}
+
+.type-complaint textarea {
+  border: 0;
+  border-radius: 5px;
+  padding: 63px 15px 15px 15px;
+  font-size: 1rem;
+  outline: none;
+  width: 500px;
+}
+
+.type-complaint {
+  width: 500px;
+  position: relative;
+}
+
+.type-complaint span {
+  background-color: rgb(117, 49, 243);
+  color: white;
+  width: 500px;
+  border-radius: 5px 5px 0 0;
+  position: absolute;
+  padding: 15px 15px;
+  top: 0;
+  text-align: center;
+}
+
+.converted-field textarea {
+  border: 0;
+  border-radius: 5px;
+  outline: none;
+  padding: 63px 15px 15px 15px;
+  width: 350px;
+}
+
+.converted-field {
+  position: relative;
+}

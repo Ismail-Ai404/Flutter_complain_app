@@ -1,10 +1,3 @@
-/*
-Template Name: DASHGUM FREE - Bootstrap 3.2 Admin Theme
-Template Version: 1.0
-Author: Carlos Alvarez
-Website: http://blacktie.co
-Premium: http://www.gridgum.com
-*/
 
 /* Import fonts */
 @import url(http://fonts.googleapis.com/css?family=Ruda:400,700,900);
@@ -29,11 +22,11 @@ a, a:hover, a:focus {
 }
 ::selection {
 
-    background: #68dff0;
+    background: #2a03c6;
     color: #fff;
 }
 ::-moz-selection {
-    background: #68dff0;
+    background: #2a03c6;
     color: #fff;
 }
 
@@ -44,7 +37,7 @@ a, a:hover, a:focus {
 
 /* Bootstrap Modifications */
 .modal-header {
-	background: #68dff0;
+	background: #2a03c6;
 }
 
 .modal-title {
@@ -74,7 +67,7 @@ a, a:hover, a:focus {
 /*Theme Backgrounds*/
 
 .bg-theme {
-	background-color: #68dff0;
+	background-color: #2a03c6;
 }
 
 .bg-theme02 {
@@ -92,8 +85,8 @@ a, a:hover, a:focus {
 
 .btn-theme {
   color: #fff;
-  background-color: #68dff0;
-  border-color: #48bcb4;
+  background-color: #2a03c6;
+  border-color: #5567ef;
 }
 .btn-theme:hover,
 .btn-theme:focus,
@@ -206,11 +199,11 @@ hr {
 /*Exclusive Theme Colors Configuration*/
 
 .label-theme {
-	background-color: #68dff0;
+	background-color: #2a03c6;
 }
 
 .bg-theme {
-	background-color: #68dff0;
+	background-color: #2a03c6;
 }
 
 ul.top-menu > li > .logout {
@@ -218,10 +211,10 @@ ul.top-menu > li > .logout {
 	font-size: 12px;
 	border-radius: 4px;
 	-webkit-border-radius: 4px;
-	border: 1px solid #64c3c2 !important;
+	border: 1px solid #2a03c6 !important;
 	padding: 5px 15px;
 	margin-right: 15px;
-	background: #68dff0;
+	background: #2a03c6;
 	margin-top: 15px;
 }
 
@@ -364,7 +357,7 @@ ul.sidebar-menu li a{
 }
 
 ul.sidebar-menu li a.active, ul.sidebar-menu li a:hover, ul.sidebar-menu li a:focus {
-    background: #68dff0;
+    background: #2a03c6;
     color: #fff;
     display: block;
 
@@ -413,8 +406,8 @@ ul.sidebar-menu li a.active i {
 }
 
 .black-bg {
-    background: #ffd777;
-    border-bottom: 1px solid #c9aa5f;
+    background: #2b02f4;
+    border-bottom: 1px solid #094cf5;
 }
 
 .wrapper {
@@ -727,9 +720,9 @@ ul.top-menu > li > a:hover, ul.top-menu > li > a:focus {
     border-top-color: #FCB322 !important;
 }
 .notify-arrow-green {
-    border-color: transparent transparent #68dff0;
-    border-bottom-color: #68dff0 !important;
-    border-top-color: #68dff0 !important;
+    border-color: transparent transparent #2a03c6;
+    border-bottom-color: #2a03c6 !important;
+    border-top-color: #2a03c6 !important;
 }
 
 
@@ -921,7 +914,7 @@ ul.top-menu > li > a:hover, ul.top-menu > li > a:focus {
     position: absolute;
     bottom: 0;
     background: #ff865c;
-    color: #68dff0;
+    color:#2a03c6;
     width: 100%;
     -webkit-border-radius: 5px 5px 0 0;
     -moz-border-radius: 5px 5px 0 0;
@@ -1055,10 +1048,10 @@ PANELS CONFIGURATIONS
 /*Green Panel*/
 .green-panel {
 	text-align: center;
-	background: #68dff0;
+	background: #2a03c6;
 }
 .green-panel .green-header {
-	background: #43b1a9;
+	background: #2a03c6;
 	padding: 3px;
 	margin-bottom: 15px;
 }

@@ -1,11 +1,3 @@
-<?php
-
-$conn = mysqli_connect('localhost', 'root', '', 'user_db');
-
-
-?>
-
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -16,7 +8,6 @@ $conn = mysqli_connect('localhost', 'root', '', 'user_db');
     <title>Login & Registration Page </title>
     <meta name="google-signin-client_id" content="174371317892-6puuclt3plqikgljl68a4icvconl3f2i.apps.googleusercontent.com">
     <script src="https://apis.google.com/js/platform.js" async defer></script>
-    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
     <link rel="stylesheet" href="style.css">
 </head>
 

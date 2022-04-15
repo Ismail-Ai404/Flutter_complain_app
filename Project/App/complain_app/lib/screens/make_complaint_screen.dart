@@ -5,7 +5,7 @@ import '../Make_complaint_item.dart';
 
 const title = 'Who to complain against';
 
-String search;
+String? search;
 
 class MakeComplaintScreen extends StatelessWidget {
   final searchType;

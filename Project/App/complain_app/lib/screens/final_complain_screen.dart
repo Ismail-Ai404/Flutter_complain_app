@@ -55,7 +55,7 @@ class _SendComplainState extends State<SendComplain> {
     );
   }
 
-  Widget infoWidget(String name, String id) {
+  Widget infoWidget(String? name, String? id) {
     return Container(
       child: Text('Name:$name ID:$id'),
     );

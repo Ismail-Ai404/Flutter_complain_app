@@ -22,13 +22,13 @@ class MakeComplaintItem extends StatefulWidget {
   // final Occupation occupation2;
 
   const MakeComplaintItem({
-    @required this.color,
-    @required this.name,
-    @required this.dept,
-    @required this.id,
-    @required this.imageUrl,
-    @required this.occupation,
-    @required this.canReview,
+    required this.color,
+    required this.name,
+    required this.dept,
+    required this.id,
+    required this.imageUrl,
+    required this.occupation,
+    required this.canReview,
   });
 
   @override
@@ -43,24 +43,17 @@ class _MakeComplaintItemState extends State<MakeComplaintItem> {
       case Occupation.Faculty:
         return 'Faculty';
 
-        break;
       case Occupation.Student:
         return 'Student';
 
-        break;
       case Occupation.Instrutor:
         return 'Instuctor';
 
-        break;
       case Occupation.Staff:
         return 'Staff';
 
-        break;
-
       case Occupation.SystemAdmin:
         return 'System Admin';
-
-        break;
 
       default:
         return 'Unknown';

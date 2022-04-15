@@ -23,13 +23,13 @@ class Search {
   final bool canReview;
 
   const Search({
-    @required this.id,
-    @required this.initial,
-    @required this.departmant,
-    @required this.name,
-    @required this.color,
-    @required this.occupation,
-    @required this.imageUrl,
-    @required this.canReview,
+    required this.id,
+    required this.initial,
+    required this.departmant,
+    required this.name,
+    required this.color,
+    required this.occupation,
+    required this.imageUrl,
+    required this.canReview,
   });
 }

@@ -59,8 +59,10 @@ class AuthScreen extends StatelessWidget {
                       child: Text(
                         'Complain',
                         style: TextStyle(
-                          color:
-                              Theme.of(context).accentTextTheme.headline6.color,
+                          color: Theme.of(context)
+                              .accentTextTheme
+                              .headline6!
+                              .color,
                           fontSize: 45,
                           fontFamily: 'Raleway',
                           fontWeight: FontWeight.normal,
@@ -84,7 +86,7 @@ class AuthScreen extends StatelessWidget {
 
 class AuthCard extends StatefulWidget {
   const AuthCard({
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   @override
@@ -94,7 +96,7 @@ class AuthCard extends StatefulWidget {
 class _AuthCardState extends State<AuthCard> {
   final GlobalKey<FormState> _formKey = GlobalKey();
   AuthMode _authMode = AuthMode.Login;
-  Map<String, String> _authData = {
+  Map<String, String?> _authData = {
     'email': '',
     'password': '',
     'id': '',
@@ -105,11 +107,11 @@ class _AuthCardState extends State<AuthCard> {
   final _passwordController = TextEditingController();
 
   void _submit() {
-    if (!_formKey.currentState.validate()) {
+    if (!_formKey.currentState!.validate()) {
       // Invalid!
       return;
     }
-    _formKey.currentState.save();
+    _formKey.currentState!.save();
     setState(() {
       _isLoading = true;
     });
@@ -163,7 +165,7 @@ class _AuthCardState extends State<AuthCard> {
                           decoration: InputDecoration(labelText: 'Name'),
                           keyboardType: TextInputType.name,
                           validator: (value) {
-                            if (value.isEmpty) {
+                            if (value!.isEmpty) {
                               return 'Name cannot be empty!';
                             }
                             return null;
@@ -177,7 +179,7 @@ class _AuthCardState extends State<AuthCard> {
                         decoration: InputDecoration(labelText: 'E-Mail'),
                         keyboardType: TextInputType.emailAddress,
                         validator: (value) {
-                          if (value.isEmpty || !value.contains('@')) {
+                          if (value!.isEmpty || !value.contains('@')) {
                             return 'Invalid email!';
                           }
                           return null;
@@ -192,7 +194,7 @@ class _AuthCardState extends State<AuthCard> {
                           decoration: InputDecoration(labelText: 'ID'),
                           keyboardType: TextInputType.number,
                           validator: (value) {
-                            if (value.isEmpty) {
+                            if (value!.isEmpty) {
                               return 'Id cannot be empty!';
                             }
                             return null;
@@ -207,7 +209,7 @@ class _AuthCardState extends State<AuthCard> {
                           decoration: InputDecoration(labelText: 'Phone'),
                           keyboardType: TextInputType.phone,
                           validator: (value) {
-                            if (value.isEmpty ||
+                            if (value!.isEmpty ||
                                 !value.contains('01') ||
                                 value.length == 11 ||
                                 value.length == 13) {
@@ -225,7 +227,8 @@ class _AuthCardState extends State<AuthCard> {
                         obscureText: true,
                         controller: _passwordController,
                         validator: (value) {
-                          if (value.isEmpty) return 'Password cannot be empty!';
+                          if (value!.isEmpty)
+                            return 'Password cannot be empty!';
                           if (value.length < 5) return 'Password too short';
 
                           return null;

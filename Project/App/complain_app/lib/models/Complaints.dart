@@ -18,13 +18,13 @@ class Complaints {
   final Status status;
 
   const Complaints({
-    @required this.lodgerID,
-    @required this.reviewID,
-    @required this.accussedID,
-    @required this.complaintID,
-    @required this.evidence,
-    @required this.isBehalf,
-    @required this.speech,
-    @required this.status,
+    required this.lodgerID,
+    required this.reviewID,
+    required this.accussedID,
+    required this.complaintID,
+    required this.evidence,
+    required this.isBehalf,
+    required this.speech,
+    required this.status,
   });
 }

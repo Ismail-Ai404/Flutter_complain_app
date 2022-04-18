@@ -3,7 +3,7 @@ session_start();
 error_reporting(0);
 include("includes/config.php");
 if (isset($_POST['submit'])) {
-	$ret = mysqli_query($bd, "SELECT * FROM faculty WHERE userEmail='" . $_POST['username'] . "' and password='" . md5($_POST['password']) . "'");
+	$ret = mysqli_query($bd, "SELECT * FROM users WHERE userEmail='" . $_POST['username'] . "' and password='" . md5($_POST['password']) . "'");
 	$num = mysqli_fetch_array($ret);
 	if ($num > 0) {
 		$extra = "change-password.php"; //
@@ -54,7 +54,7 @@ if (isset($_POST['change'])) {
 	<meta name="keyword" content="Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina">
 	<meta name="google-signin-client_id" content="174371317892-6puuclt3plqikgljl68a4icvconl3f2i.apps.googleusercontent.com">
 	<script src="https://apis.google.com/js/platform.js" async defer></script>
-	<title>CMS | User Login</title>
+	<title>NSU | User Login</title>
 
 	<!-- Bootstrap core CSS -->
 	<link href="assets/css/bootstrap.css" rel="stylesheet">
@@ -96,7 +96,6 @@ if (isset($_POST['change'])) {
 					<?php if ($msg) {
 						echo htmlentities($msg);
 					} ?></p>
-
 				<div class="login-wrap">
 					<div class="social-container">
 						<div class="g-signin2"></div>
@@ -164,7 +163,7 @@ if (isset($_POST['change'])) {
 	<!-- You can use an image of whatever size. This script will stretch to fit in any screen size.-->
 	<script type="text/javascript" src="assets/js/jquery.backstretch.min.js"></script>
 	<script>
-		$.backstretch("assets/img/NSU_lib.jpg", {
+		$.backstretch("assets/img/login-bg.jpg", {
 			speed: 500
 		});
 	</script>

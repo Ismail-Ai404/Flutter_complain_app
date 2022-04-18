@@ -8,8 +8,8 @@ if (strlen($_SESSION['login']) == 0) {
 
   if (isset($_POST['submit'])) {
     $uid = $_SESSION['id'];
-    $accperson = $_POST['accperson'];
-    $reviewer = $_POST['reviewer'];
+    $category = $_POST['category'];
+    $subcat = $_POST['subcategory'];
     $complaintype = $_POST['complaintype'];
     $state = $_POST['state'];
     $noc = $_POST['noc'];
@@ -19,7 +19,7 @@ if (strlen($_SESSION['login']) == 0) {
 
 
     move_uploaded_file($_FILES["compfile"]["tmp_name"], "complaintdocs/" . $_FILES["compfile"]["name"]);
-    $query = mysqli_query($bd, "insert into tblcomplaints(userId,accperson,reviewer,complaintType,state,noc,complaintDetails,complaintFile) values('$uid','$category','$subcat','$complaintype','$state','$noc','$complaintdetials','$compfile')");
+    $query = mysqli_query($bd, "insert into tblcomplaints(userId,category,subcategory,complaintType,state,noc,complaintDetails,complaintFile) values('$uid','$category','$subcat','$complaintype','$state','$noc','$complaintdetials','$compfile')");
 
     $sql = mysqli_query($bd, "select complaintNumber from tblcomplaints  order by complaintNumber desc limit 1");
     while ($row = mysqli_fetch_array($sql)) {
@@ -40,7 +40,7 @@ if (strlen($_SESSION['login']) == 0) {
     <meta name="author" content="Dashboard">
     <meta name="keyword" content="Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina">
 
-    <title>NSU | User Register Complaint</title>
+    <title>CMS | User Register Complaint</title>
 
     <!-- Bootstrap core CSS -->
     <link href="assets/css/bootstrap.css" rel="stylesheet">
@@ -100,17 +100,23 @@ if (strlen($_SESSION['login']) == 0) {
                 <form class="form-horizontal style-form" method="post" name="complaint" enctype="multipart/form-data">
 
                   <div class="form-group">
-                    <label class="col-sm-2 col-sm-2 control-label">Choose Accused person</label>
+                    <label class="col-sm-2 col-sm-2 control-label">Category</label>
                     <div class="col-sm-4">
-                      <select name="accperson" id="accperson" class="form-control" onChange="getCat(this.value);" required="">
-                        <option value="">Select person</option>
-                        <?php $sql = mysqli_query($bd, "select id,fullName from users");
+                      <select name="category" id="category" class="form-control" onChange="getCat(this.value);" required="">
+                        <option value="">Select Category</option>
+                        <?php $sql = mysqli_query($bd, "select id,categoryName from category ");
                         while ($rw = mysqli_fetch_array($sql)) {
                         ?>
-                          <option value="<?php echo htmlentities($rw['id']); ?>"><?php echo htmlentities($rw['fullName']); ?></option>
+                          <option value="<?php echo htmlentities($rw['id']); ?>"><?php echo htmlentities($rw['categoryName']); ?></option>
                         <?php
                         }
                         ?>
+                      </select>
+                    </div>
+                    <label class="col-sm-2 col-sm-2 control-label">Sub Category </label>
+                    <div class="col-sm-4">
+                      <select name="subcategory" id="subcategory" class="form-control">
+                        <option value="">Select Subcategory</option>
                       </select>
                     </div>
                   </div>
@@ -119,24 +125,41 @@ if (strlen($_SESSION['login']) == 0) {
 
 
                   <div class="form-group">
-                    <label class="col-sm-2 col-sm-2 control-label">Choose Reviewer</label>
+                    <label class="col-sm-2 col-sm-2 control-label">Complaint Type</label>
                     <div class="col-sm-4">
-                      <select name="reviewer" id="reviewer" class="form-control" onChange="getCat(this.value);" required="">
+                      <select name="complaintype" class="form-control" required="">
+                        <option value=" Complaint"> Urgent</option>
+                        <option value="General Query">General Query</option>
+                      </select>
+                    </div>
+
+                    <label class="col-sm-2 col-sm-2 control-label">Reviewer</label>
+                    <div class="col-sm-4">
+                      <select name="state" required="required" class="form-control">
                         <option value="">Select person</option>
-                        <?php $sql = mysqli_query($bd, "select id,fullName from faculty");
+                        <?php $sql = mysqli_query($bd, "select stateName from state ");
                         while ($rw = mysqli_fetch_array($sql)) {
                         ?>
-                          <option value="<?php echo htmlentities($rw['id']); ?>"><?php echo htmlentities($rw['fullName']); ?></option>
+                          <option value="<?php echo htmlentities($rw['stateName']); ?>"><?php echo htmlentities($rw['stateName']); ?></option>
                         <?php
                         }
                         ?>
+
                       </select>
                     </div>
                   </div>
 
 
                   <div class="form-group">
-                    <label class="col-sm-2 col-sm-2 control-label">Complaint Details (max 2000 words) </label>
+                    <label class="col-sm-2 col-sm-2 control-label">Accuse</label>
+                    <div class="col-sm-4">
+                      <input type="text" name="noc" required="required" value="" required="" class="form-control">
+                    </div>
+
+                  </div>
+
+                  <div class="form-group">
+                    <label class="col-sm-2 col-sm-2 control-label">Complaint Details </label>
                     <div class="col-sm-6">
                       <textarea name="complaindetails" required="required" cols="10" rows="10" class="form-control" maxlength="2000"></textarea>
                     </div>

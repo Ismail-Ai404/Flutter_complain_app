@@ -40,7 +40,7 @@ if (strlen($_SESSION['login']) == 0) {
     <meta name="author" content="Dashboard">
     <meta name="keyword" content="Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina">
 
-    <title>CMS | User Register Complaint</title>
+    <title>NSU | User Register Complaint</title>
 
     <!-- Bootstrap core CSS -->
     <link href="assets/css/bootstrap.css" rel="stylesheet">
@@ -100,37 +100,66 @@ if (strlen($_SESSION['login']) == 0) {
                 <form class="form-horizontal style-form" method="post" name="complaint" enctype="multipart/form-data">
 
                   <div class="form-group">
-                    <label class="col-sm-2 col-sm-2 control-label">Choose Accused person</label>
+                    <label class="col-sm-2 col-sm-2 control-label">Category</label>
                     <div class="col-sm-4">
                       <select name="category" id="category" class="form-control" onChange="getCat(this.value);" required="">
-                        <option value="">Select person</option>
-                        <?php $sql = mysqli_query($bd, "select id,fullName from users ");
+                        <option value="">Select Category</option>
+                        <?php $sql = mysqli_query($bd, "select id,categoryName from category ");
                         while ($rw = mysqli_fetch_array($sql)) {
                         ?>
-                          <option value="<?php echo htmlentities($rw['id']); ?>"><?php echo htmlentities($rw['fullName']); ?></option>
+                          <option value="<?php echo htmlentities($rw['id']); ?>"><?php echo htmlentities($rw['categoryName']); ?></option>
                         <?php
                         }
                         ?>
                       </select>
                     </div>
+                    <label class="col-sm-2 col-sm-2 control-label">Sub Category </label>
+                    <div class="col-sm-4">
+                      <select name="subcategory" id="subcategory" class="form-control">
+                        <option value="">Select Subcategory</option>
+                      </select>
+                    </div>
                   </div>
 
 
 
 
                   <div class="form-group">
-                    <label class="col-sm-2 col-sm-2 control-label">Reviwer</label>
+                    <label class="col-sm-2 col-sm-2 control-label">Complaint Type</label>
                     <div class="col-sm-4">
                       <select name="complaintype" class="form-control" required="">
-                        <option value=" Complaint"> Select Person</option>
+                        <option value=" Complaint"> Urgent</option>
                         <option value="General Query">General Query</option>
+                      </select>
+                    </div>
+
+                    <label class="col-sm-2 col-sm-2 control-label">Reviewer</label>
+                    <div class="col-sm-4">
+                      <select name="state" required="required" class="form-control">
+                        <option value="">Select person</option>
+                        <?php $sql = mysqli_query($bd, "select stateName from state ");
+                        while ($rw = mysqli_fetch_array($sql)) {
+                        ?>
+                          <option value="<?php echo htmlentities($rw['stateName']); ?>"><?php echo htmlentities($rw['stateName']); ?></option>
+                        <?php
+                        }
+                        ?>
+
                       </select>
                     </div>
                   </div>
 
 
                   <div class="form-group">
-                    <label class="col-sm-2 col-sm-2 control-label">Complaint Details (max 2000 words) </label>
+                    <label class="col-sm-2 col-sm-2 control-label">Accuse</label>
+                    <div class="col-sm-4">
+                      <input type="text" name="noc" required="required" value="" required="" class="form-control">
+                    </div>
+
+                  </div>
+
+                  <div class="form-group">
+                    <label class="col-sm-2 col-sm-2 control-label">Complaint Details </label>
                     <div class="col-sm-6">
                       <textarea name="complaindetails" required="required" cols="10" rows="10" class="form-control" maxlength="2000"></textarea>
                     </div>

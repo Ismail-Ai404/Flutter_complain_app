@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+//import 'package:flutter_complete_guide/screens/login_screen.dart';
 import 'package:provider/provider.dart';
 
 import './screens/auth_screen.dart';
@@ -7,11 +8,18 @@ import './providers/google_sign_in.dart';
 import './screens/home_screen.dart';
 import './screens/make_complaint_screen.dart';
 import './screens/send_complain_screen.dart';
+import 'package:firebase_core/firebase_core.dart';
 import './screens/tabs_screen.dart';
+//
+//import './screens/tabs_screen.dart';
 
 //import './screens/notification_screen.dart';
 
-void main() => runApp(MyApp());
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
+  runApp(MyApp());
+}
 
 class MyApp extends StatelessWidget {
   @override
@@ -40,12 +48,13 @@ class MyApp extends StatelessWidget {
               ),
         ),
         //home: MakeComplaintScreen(),
-        initialRoute: '/',
+        initialRoute: '/b',
         routes: {
-          '/hey': (context) => AuthScreen(),
+          '/': (context) => AuthScreen(),
+          '/b': (context) => TabsScreen(),
           DrawerScreen().logoutroute: (context) => AuthScreen(),
           Home.routeToMakeAComplaint: (context) => MakeComplaintScreen(2),
-          '/': (ctx) => TabsScreen(),
+          AuthScreen.routeName: (ctx) => TabsScreen(),
           SendComplainScreen.routeName: (ctx) => SendComplainScreen(),
           SendComplainScreen.routeComplainToSpeech: (context) =>
               SendComplainScreen(),

@@ -1,6 +1,7 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_complete_guide/screens/tabs_screen.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:provider/provider.dart';
 import '../providers/google_sign_in.dart';
@@ -8,7 +9,7 @@ import '../providers/google_sign_in.dart';
 enum AuthMode { Signup, Login }
 
 class AuthScreen extends StatelessWidget {
-  static const routeName = '/auth-screen';
+  static const routeName = '/auth_to_tabs';
 
   @override
   Widget build(BuildContext context) {
@@ -303,6 +304,12 @@ class _AuthCardState extends State<AuthCard> {
                   final provider =
                       Provider.of<GoogleSignInProvider>(context, listen: false);
                   provider.googleLogin();
+                  if (provider.checkStatus()) {
+                    //Navigator.pushReplacement(context, routeNamw)
+                    //Navigator.of(context).pop(true);
+                    Navigator.of(context)
+                        .pushReplacementNamed(AuthScreen.routeName);
+                  }
                 },
                 icon: FaIcon(
                   FontAwesomeIcons.google,

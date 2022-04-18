@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import '../providers/google_sign_in.dart';
 
 class DrawerScreen extends StatelessWidget {
   static const _imageUrl =
@@ -196,10 +198,15 @@ class DrawerScreen extends StatelessWidget {
                         onPressed: () => Navigator.of(ctx).pop(false),
                         child: Text('No')),
                     TextButton(
-                      onPressed: (() => {
-                            Navigator.of(ctx).pop(true),
-                            Navigator.of(ctx).pushReplacementNamed(logoutroute)
-                          }),
+                      onPressed: (() {
+                        final provider = Provider.of<GoogleSignInProvider>(
+                            context,
+                            listen: false);
+
+                        provider.logout();
+                        Navigator.of(ctx).pop(true);
+                        Navigator.of(ctx).pushReplacementNamed(logoutroute);
+                      }),
                       child: Text('Yes'),
                       //style: ButtonStyle( Colors.red),
                     )

@@ -34,7 +34,7 @@ if (strlen($_SESSION['login']) == 0) {
           <h3><i class="fa fa-angle-right"></i> Complaint Details</h3>
           <hr />
 
-          <?php $query = mysqli_query($bd, "select tblcomplaints.*");
+          <?php $query = mysqli_query($bd, "select tblcomplaints.*,category.categoryName as catname from tblcomplaints join category on category.id=tblcomplaints.category where userId='" . $_SESSION['id'] . "' and complaintNumber='" . $_GET['cid'] . "'");
           while ($row = mysqli_fetch_array($query)) { ?>
             <div class="row mt">
               <label class="col-sm-2 col-sm-2 control-label"><b>Complaint Number : </b></label>
@@ -49,7 +49,7 @@ if (strlen($_SESSION['login']) == 0) {
 
 
             <div class="row mt">
-              <label class="col-sm-2 col-sm-2 control-label"><b>Accused person : </b></label>
+              <label class="col-sm-2 col-sm-2 control-label"><b>Category :</b></label>
               <div class="col-sm-4">
                 <p><?php echo htmlentities($row['catname']); ?></p>
               </div>
@@ -66,7 +66,7 @@ if (strlen($_SESSION['login']) == 0) {
               <div class="col-sm-4">
                 <p><?php echo htmlentities($row['complaintType']); ?></p>
               </div>
-              <label class="col-sm-2 col-sm-2 control-label"><b>State :</b></label>
+              <label class="col-sm-2 col-sm-2 control-label"><b>Reviewer :</b></label>
               <div class="col-sm-4">
                 <p><?php echo htmlentities($row['state']); ?></p>
               </div>
@@ -75,7 +75,7 @@ if (strlen($_SESSION['login']) == 0) {
 
 
             <div class="row mt">
-              <label class="col-sm-2 col-sm-2 control-label"><b>Nature of Complaint :</b></label>
+              <label class="col-sm-2 col-sm-2 control-label"><b>Accused :</b></label>
               <div class="col-sm-4">
                 <p><?php echo htmlentities($row['noc']); ?></p>
               </div>
@@ -106,9 +106,9 @@ if (strlen($_SESSION['login']) == 0) {
             ?>
               <div class="row mt">
 
-                <label class="col-sm-2 col-sm-2 control-label"><b>Remark:</b></label>
+                <label class="col-sm-2 col-sm-2 control-label"><b>Comment:</b></label>
                 <div class="col-sm-10">
-                  <?php echo  htmlentities($rw['remark']); ?>&nbsp;&nbsp; <b>Remark Date: <?php echo  htmlentities($rw['rdate']); ?></b>
+                  <?php echo  htmlentities($rw['remark']); ?>&nbsp;&nbsp; <b>Comment Date: <?php echo  htmlentities($rw['rdate']); ?></b>
                 </div>
               </div>
               <div class="row mt">

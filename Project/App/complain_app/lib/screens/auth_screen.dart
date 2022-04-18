@@ -1,8 +1,35 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:google_sign_in/google_sign_in.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 enum AuthMode { Signup, Login }
+
+class GoogleSingInProvider extends ChangeNotifier {
+  final googleSignIn = GoogleSignIn();
+
+  GoogleSignInAccount? _user;
+  GoogleSignInAccount get user => _user!;
+
+  Future googleLogin() async {
+    final googleUser = await googleSignIn.signIn();
+    if (googleUser == null) return;
+    _user = googleUser;
+
+    final googleAuth = await googleUser.authentication;
+
+    final credential = GoogleAuthProvider.credential(
+      accessToken: googleAuth.idToken,
+      idToken: googleAuth.idToken,
+    );
+
+    await FirebaseAuth.instance.signInWithCredential(credential);
+
+    notifyListeners();
+  }
+}
 
 class AuthScreen extends StatelessWidget {
   static const routeName = '/auth-screen';
@@ -279,7 +306,7 @@ class _AuthCardState extends State<AuthCard> {
                 ),
               TextButton(
                 child: Text(
-                    '${_authMode == AuthMode.Login ? 'SIGNUP' : 'LOGIN'} INSTEAD'),
+                    '${_authMode == AuthMode.Login ? 'SIGN UP' : 'LOGIN'} INSTEAD'),
                 onPressed: _switchAuthMode,
                 style: TextButton.styleFrom(
                   padding: EdgeInsets.symmetric(horizontal: 30.0, vertical: 4),
@@ -287,6 +314,22 @@ class _AuthCardState extends State<AuthCard> {
                   primary: Theme.of(context).primaryColor,
                 ),
               ),
+              SizedBox(
+                height: 10,
+              ),
+              ElevatedButton.icon(
+                style: ElevatedButton.styleFrom(
+                  primary: Colors.white,
+                  onPrimary: Colors.black,
+                  minimumSize: Size(double.infinity, 50),
+                ),
+                onPressed: () {},
+                icon: FaIcon(
+                  FontAwesomeIcons.google,
+                  color: Colors.red,
+                ),
+                label: Text('Sign Up with Google'),
+              )
             ],
           ),
         ],

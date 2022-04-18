@@ -49,7 +49,7 @@ if (strlen($_SESSION['login']) == 0) {
 
 
             <div class="row mt">
-              <label class="col-sm-2 col-sm-2 control-label"><b>Accused person : </b></label>
+              <label class="col-sm-2 col-sm-2 control-label"><b>Accused person</b></label>
               <div class="col-sm-4">
                 <p><?php echo htmlentities($row['catname']); ?></p>
               </div>

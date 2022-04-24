@@ -1,81 +1,120 @@
 import 'package:avatar_glow/avatar_glow.dart';
-import 'package:clipboard/clipboard.dart';
 import 'package:flutter/material.dart';
-import '../api/speech_api.dart';
-//import '../main.dart';
-import '../substring_higlighted.dart';
+import 'package:highlight_text/highlight_text.dart';
+import 'package:speech_to_text/speech_to_text.dart' as stt;
 
-import '../utils.dart';
-
-class SpeechToText extends StatefulWidget {
+class SpeechScreen extends StatefulWidget {
   @override
-  _SpeechToTextState createState() => _SpeechToTextState();
+  _SpeechScreenState createState() => _SpeechScreenState();
 }
 
-class _SpeechToTextState extends State<SpeechToText> {
-  String text = 'Press the button and start speaking';
-  bool isListening = false;
+class _SpeechScreenState extends State<SpeechScreen> {
+  final Map<String, HighlightedWord> _highlights = {
+    'flutter': HighlightedWord(
+      onTap: () => print('flutter'),
+      textStyle: const TextStyle(
+        color: Colors.blue,
+        fontWeight: FontWeight.bold,
+      ),
+    ),
+    'voice': HighlightedWord(
+      onTap: () => print('voice'),
+      textStyle: const TextStyle(
+        color: Colors.green,
+        fontWeight: FontWeight.bold,
+      ),
+    ),
+    'subscribe': HighlightedWord(
+      onTap: () => print('subscribe'),
+      textStyle: const TextStyle(
+        color: Colors.red,
+        fontWeight: FontWeight.bold,
+      ),
+    ),
+    'like': HighlightedWord(
+      onTap: () => print('like'),
+      textStyle: const TextStyle(
+        color: Colors.blueAccent,
+        fontWeight: FontWeight.bold,
+      ),
+    ),
+    'comment': HighlightedWord(
+      onTap: () => print('comment'),
+      textStyle: const TextStyle(
+        color: Colors.green,
+        fontWeight: FontWeight.bold,
+      ),
+    ),
+  };
+
+  stt.SpeechToText? _speech;
+  bool _isListening = false;
+  String _text = 'Press the button and start speaking';
+  double _confidence = 1.0;
 
   @override
-  Widget build(BuildContext context) => Scaffold(
-        appBar: AppBar(
-          title: Text('Speech To Text'),
-          centerTitle: true,
-          actions: [
-            Builder(
-              builder: (context) => IconButton(
-                icon: Icon(Icons.content_copy),
-                onPressed: () async {
-                  await FlutterClipboard.copy(text);
+  void initState() {
+    super.initState();
+    _speech = stt.SpeechToText();
+  }
 
-                  SnackBar(
-                    content: Text('✓ Copied to Clipboard'),
-                  );
-                },
-              ),
-            ),
-          ],
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Confidence: ${(_confidence * 100.0).toStringAsFixed(1)}%'),
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
+      floatingActionButton: AvatarGlow(
+        animate: _isListening,
+        glowColor: Theme.of(context).primaryColor,
+        endRadius: 75.0,
+        duration: const Duration(milliseconds: 2000),
+        repeatPauseDuration: const Duration(milliseconds: 100),
+        repeat: true,
+        child: FloatingActionButton(
+          onPressed: _listen,
+          child: Icon(_isListening ? Icons.mic : Icons.mic_none),
         ),
-        body: SingleChildScrollView(
-          reverse: true,
-          padding: const EdgeInsets.all(30).copyWith(bottom: 150),
-          child: SubstringHighlight(
-            text: text,
-            terms: Command.all,
-            textStyle: TextStyle(
+      ),
+      body: SingleChildScrollView(
+        reverse: true,
+        child: Container(
+          padding: const EdgeInsets.fromLTRB(30.0, 30.0, 30.0, 150.0),
+          child: TextHighlight(
+            text: _text,
+            words: _highlights,
+            textStyle: const TextStyle(
               fontSize: 32.0,
               color: Colors.black,
               fontWeight: FontWeight.w400,
             ),
-            textStyleHighlight: TextStyle(
-              fontSize: 32.0,
-              color: Colors.red,
-              fontWeight: FontWeight.w400,
-            ),
           ),
         ),
-        floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
-        floatingActionButton: AvatarGlow(
-          animate: isListening,
-          endRadius: 75,
-          glowColor: Theme.of(context).primaryColor,
-          child: FloatingActionButton(
-            child: Icon(isListening ? Icons.mic : Icons.mic_none, size: 36),
-            onPressed: toggleRecording,
-          ),
-        ),
-      );
+      ),
+    );
+  }
 
-  Future toggleRecording() => SpeechApi.toggleRecording(
-        onResult: (text) => setState(() => this.text = text),
-        onListening: (isListening) {
-          setState(() => this.isListening = isListening);
-
-          if (!isListening) {
-            Future.delayed(Duration(seconds: 1), () {
-              Utils.scanText(text);
-            });
-          }
-        },
+  void _listen() async {
+    if (!_isListening) {
+      bool available = await _speech!.initialize(
+        onStatus: (val) => print('onStatus: $val'),
+        onError: (val) => print('onError: $val'),
       );
+      if (available) {
+        setState(() => _isListening = true);
+        _speech?.listen(
+          onResult: (val) => setState(() {
+            _text = val.recognizedWords;
+            if (val.hasConfidenceRating && val.confidence > 0) {
+              _confidence = val.confidence;
+            }
+          }),
+        );
+      }
+    } else {
+      setState(() => _isListening = false);
+      _speech?.stop();
+    }
+  }
 }

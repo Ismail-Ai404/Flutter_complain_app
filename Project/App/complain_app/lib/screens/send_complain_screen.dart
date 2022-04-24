@@ -5,7 +5,7 @@ class SendComplainScreen extends StatelessWidget {
   // final String name;
   // final String dept;
   static const routeName = '/after-complainagainst-selected';
-  static const routeComplainToSpeech = 'after-complain-to-speech';
+  static const routeComplainToSpeech = '/after-complain-to-speech';
 
   // SendComplainScreen(this.id, this.name, this.dept);
 

@@ -1,17 +1,60 @@
 {
-    // Use IntelliSense to learn about possible attributes.
-    // Hover to view descriptions of existing attributes.
-    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
     "version": "0.2.0",
     "configurations": [
+        {
+            "name": "Flutter: Attach to Device",
+            "type": "dart",
+            "program": "lib/main.dart",
+            "cwd": "Project\\App\\complain_app",
+            "request": "attach",
+            "flutterMode": "debug"
+
+            
+            
+        },
+        {
+            "name": "Flutter",
+            "type": "dart",
+            "cwd": "Project\\App\\complain_app",
+            "request": "launch",
+            "program": "lib/main.dart"
+        },
 
         
         {
-            "name": "Dart & Flutter",
+            "name": "Dart: Attach to Process",
+            "program": "lib/main.dart",
+            "cwd": "Project\\App\\complain_app",
+            "type": "dart",
+            "request": "attach"
+        },
+        
+        {
+            "name": "Flutter",
+            "program": "lib/main.dart",
+            "cwd": "Project\\App\\complain_app",
             "request": "launch",
             "type": "dart",
-            "program": "C:/Education/221/CSE327/cse327.3.5/Project/App/complain_app"
-            
+            "flutterMode": "debug"
+
+
+        },
+        {
+            "name": "Flutter (profile mode)",
+            "program": "lib/main.dart",
+            "cwd": "Project\\App\\complain_app",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "profile"
+        },
+        
+        {
+            "name": "Flutter (release mode)",
+            "program": "lib/main.dart",
+            "cwd": "Project\\App\\complain_app",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "release"
         }
     ]
 }

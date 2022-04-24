@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_complete_guide/screens/speech_screen.dart';
 //import 'package:flutter_complete_guide/screens/login_screen.dart';
 import 'package:provider/provider.dart';
 
@@ -57,7 +58,7 @@ class MyApp extends StatelessWidget {
           AuthScreen.routeName: (ctx) => TabsScreen(),
           SendComplainScreen.routeName: (ctx) => SendComplainScreen(),
           SendComplainScreen.routeComplainToSpeech: (context) =>
-              SendComplainScreen(),
+              SpeechSampleApp(),
         },
         //dsjnkjn
       ),

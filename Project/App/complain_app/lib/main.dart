@@ -57,8 +57,7 @@ class MyApp extends StatelessWidget {
           Home.routeToMakeAComplaint: (context) => MakeComplaintScreen(2),
           AuthScreen.routeName: (ctx) => TabsScreen(),
           SendComplainScreen.routeName: (ctx) => SendComplainScreen(),
-          SendComplainScreen.routeComplainToSpeech: (context) =>
-              SpeechSampleApp(),
+          SendComplainScreen.routeComplainToSpeech: (context) => SpeechToText(),
         },
         //dsjnkjn
       ),

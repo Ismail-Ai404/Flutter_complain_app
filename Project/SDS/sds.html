@@ -1,0 +1,272 @@
+<html>
+
+<head>
+
+    <style>
+        h1 {
+            color: green;
+        }
+
+        h2 {
+            color: blue;
+        }
+
+        body {
+            font-family: "Lato", sans-serif;
+        }
+
+        .sidenav {
+            height: 100%;
+            width: 0;
+            position: fixed;
+            z-index: 1;
+            top: 0;
+            left: 0;
+            background-color: rgb(2, 248, 236);
+            overflow-x: hidden;
+            transition: 0.5s;
+            padding-top: 60px;
+        }
+
+        @media print {
+            .sidenav {
+                visibility: hidden !important;
+            }
+        }
+
+        @media print {
+            .sideBar {
+                visibility: hidden !important;
+            }
+        }
+
+
+        .sidenav a ul {
+            padding: 4px 4px 4px 9px;
+            text-decoration: none;
+            font-size: 25px;
+            color: #818181;
+            display: block;
+            transition: 0.3s;
+        }
+
+        .sidenav a:hover {
+            color: #f1f1f1;
+        }
+
+        .sidenav .closebtn {
+            position: absolute;
+            top: 0;
+            right: 25px;
+            font-size: 36px;
+            margin-left: 50px;
+        }
+
+
+
+        #main {
+            transition: margin-left .5s;
+
+            position: fixed;
+            font-size: 5000;
+            top: 0px;
+            right: 0px;
+            width: fit-content;
+            padding: 20;
+
+        }
+
+
+        @media screen and (max-height: 5000px) {
+            .sidenav {
+                padding-top: 15px;
+            }
+
+            .sidenav a {
+                font-size: 18px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+
+    <div id="mySidenav" class="sidenav">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <ul>
+                <li><a href="#introduction"> Introduction</a>
+                </li>
+                <ul>
+                    <li><a href="#purpose">Purpose</a>
+                    </li>
+                    <li><a href="#scope">Scope</a>
+                    </li>
+                    <li><a href="#references">References</a>
+                    </li>
+                </ul>
+                <li><a href="#document-convention">Document Conventions</a>
+            
+                <li><a href="#description-design">Description of Design Components</a>
+                <li><a href="#high-level-design">High-Level Component Design</a>
+                </li>
+                <li><a href="#class-diagrams">Class diagrams</a></li>
+                <ul>
+                    <li><a href="#detailed-diagram">Detailed Class Diagram(s)</a>
+                    </li>
+                    <li> <a href="#detailed-description">Detailed Class Description(s)</a>
+                    </li>
+                </ul>
+                </li>
+                </li>
+                <li><a href="#database-design">Database Design</a>
+                    <ul>
+                        <li><a href="#er-diagram">ER Diagram</a>
+                        </li>
+                    </ul>
+                </li>
+                <li><a href="#implementation-plan">Implementation plan</a>
+            
+                </li>
+        </ul>
+    </div>
+
+    <div id="main" class="sideBar">
+        <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; Navigation</span>
+
+    </div>
+
+
+    <script>
+        function openNav() {
+            document.getElementById("mySidenav").style.width = "250px";
+            document.getElementById("main").style.marginLeft = "250px";
+        }
+
+        function closeNav() {
+            document.getElementById("mySidenav").style.width = "0";
+            document.getElementById("main").style.marginLeft = "0";
+        }
+
+
+
+    </script>
+    <div id="007" onclick="closeNav()">
+        <h1 id="software-requirements-specification">Software Design Specification</h1>
+        <h2 id="for">For </h2>
+        <h2 id="project-name">NSU Complain System </h2>
+        <p>Version 1.0.0 approved</p>
+        <p>Prepared by</p>
+        <author>Mohammad Ismail Hossain Siddiquee</author><br>
+        <author>Mashfiqul Faruque</author><br>
+        <instiution>North South University</instiution><br>
+        <date created="">April 2022</date>
+        <h1 id="table-of-contents">Table of Contents</h1>
+        <ul>
+            <li><a href="#introduction"> Introduction</a>
+            </li>
+            <ul>
+                <li><a href="#purpose">Purpose</a>
+                </li>
+                <li><a href="#scope">Scope</a>
+                </li>
+                <li><a href="#references">References</a>
+                </li>
+            </ul>
+            <li><a href="#document-convention">Document Conventions</a>
+                
+                    <li><a
+                            href="#description-design">Description of Design Components</a>
+                    <li><a href="#high-level-design">High-Level Component Design</a>
+                    </li>
+                    <li><a href="#class-diagrams">Class diagrams</a></li>
+                    <ul>
+                    <li><a href="#detailed-diagram">Detailed Class Diagram(s)</a>
+                    </li>
+                    <li> <a
+                            href="#detailed-description">Detailed Class Description(s)</a>
+                    </li>
+                    </ul>
+                </li>
+            </li>
+            <li><a href="#database-design">Database Design</a>
+                <ul>
+                    <li><a href="#er-diagram">ER Diagram</a>
+                    </li>
+                </ul>
+            </li>
+            <li><a href="#implementation-plan">Implementation plan</a>
+                
+            </li>
+            
+        
+        <h2 id="introduction">Introduction</h2>
+        <p>
+            
+        </p>
+        <h3 id="purpose">Purpose</h3>
+        <p>
+        This software design specification is made with the purpose of outlining the software architecture & design of the NSU Complaint System in 
+        detail. The document will provide developers an insight in meeting client's needs efficiently and effectively. Moreover the document facilitaes 
+        communication and understanding of the system by providing several views of the system design.
+        </p>
+        <h3 id="scope">Scope</h3>
+        <p>
+            This software design specification document would demonstrate how the design will accomplish the functional and non-functional requirements 
+            captured in SRS. The document will provide a framework to the programmers through describing the high level components & architecture, sub 
+            systems, interfaces, database design and algorithm design. This is acheived through the use of architecture patterns, design patterns, sequence 
+            patterns, class diagrams and user interfaces.
+        </p>
+        <h3 id="references">References</h3>
+        <p>
+            1. NSU complaint System bitbucket page: <br>
+            https://bitbucket.org/nabeel_mohammed/cse327.3.5/src/master/Project/<br>
+            <br>
+            2. Object Oriented And Classical Software Engineering 8th Edition<br>
+            <br>
+            3. Internet<br>
+        </p>
+        <h2 id="document-conventions">Document Conventions</h2>
+        <p> 
+            
+        </p>
+        <h2 id="description-design">Description of Design Components</h2>
+        <p> 
+            
+        </p>
+        <h2 id="high-level-design">High-Level Component Design</h2>
+        <p>    
+            
+        </p>
+        <h2 id="class-diagrams">Class diagrams</h2>
+        <p>  
+            
+        </p>
+        <h3 id="detailed-diagram">Detailed Class Diagram(s)</h3>
+        <p> 
+            
+        </p>
+        <h3 id="detailed-description">Detailed Class Description(s)</h3>
+        <p> 
+            
+        </p>
+        <br>
+        <br>
+        <br>
+        <br>
+        <h2 id="database-design">Database Design</h2>
+        <h3 id="er-diagram">ER Diagram</h3>
+        <p>
+            
+        </p><br><br><br>
+        
+        <h2 id="implementation-plan">Implementation plan</h2>
+        <p>
+            
+        </p>
+        
+    </div>
+
+</body>
+
+</html>

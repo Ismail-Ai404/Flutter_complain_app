@@ -277,16 +277,17 @@
             
         </p>
         <h2 id="class-diagrams">Class diagrams</h2>
-        <p>  
-            
-        </p>
+        
         <h3 id="detailed-diagram">Detailed Class Diagram(s)</h3>
         <p> 
-            
+            <img class="diagram" src="images/rsz_d1g.jpg" alt="Diagram">
         </p>
         <h3 id="detailed-description">Detailed Class Description(s)</h3>
         <p> 
-            
+            With the help of ER diagram we made this concept of class diagram of NSU Complaint System. The diagrams consist of class attributes and some methods.In this diagrams there are
+            three classes and 1 sub class.Admin classes consist complaint id, process request, creating user account. User login classes have name, id, email, phone attributes and method part 
+            they can modify it using add, edit,and delete their profile and complaints. Faculty classes consist complaint id, process request, review complaints methods. They can modify status 
+            & comments on complaints. Complaint classes consist complaint id, lodger id, reviewer id &  on behalf complaints request because of who continuously fails to lodge complaints.
         </p>
         <br>
         <br>
@@ -295,9 +296,61 @@
         <h2 id="database-design">Database Design</h2>
         <h3 id="er-diagram">ER Diagram</h3>
         <p>
-            
-        </p><br><br><br>
-        
+            <img class="diagram" src="images/er.PNG" alt="Diagram">
+        </p><br>
+        <h3>Table Details</h3>
+        <p>
+            <h4>Table: User</h4>
+            <p>
+            Purpose:To store data of every type of user and keep track.<br><br>
+            Table attributes & types: 
+            <li>id int primary key </li>
+            <li>fullName varchar key</li>
+            <li>userEmail varchar key </li>
+            <li>Password varchar key</li>
+            <li>contactno bigint </li>
+            <li>address varchar key</li>
+            <li>userImage varchar key </li>
+            <li>regDate timestamp </li>
+            </p>
+        </p>
+        <br>
+        <h4>Table: Admin</h4>
+        <p>
+            Purpose:To store data of every type of user and complaints and keeping track on them.<br><br>
+            Table attributes & types:
+            <li>id int primary key </li>
+            <li>username varchar key</li>
+            <li>Password varchar key</li>
+            <li>updationDate varchar key</li>
+        </p>
+        </p><br>
+        <h4>Table: Complaint</h4>
+        <p>
+            Purpose:To store data of every type of data of complaints.<br><br>
+            Table attributes & types:
+            <li>complaintNumber int primary key </li>
+            <li>userid int key</li>
+            <li>category varchar key</li>
+            <li>Accused varchar key</li>
+            <li>Reviewer varchar key</li>
+            <li>complaintdetails varchar key</li>
+            <li>evidence varchar key</li>
+            <li>status varchar key</li>
+            <li>regDate timestamp</li>
+        </p>
+        </p><br>
+        <h4>Table: Status</h4>
+        <p>
+            Purpose:To store data of every type of data of complaint's status of ever update.<br><br>
+            Table attributes & types:
+            <li>complaintnumber int primary key </li>
+            <li>status varchar key </li>
+            <li>comment varchar key </li>
+            <li>regDate timestamp </li>
+            </p>
+        </p>
+        </p>
         <h2 id="implementation-plan">Implementation plan</h2>
         <p>
             

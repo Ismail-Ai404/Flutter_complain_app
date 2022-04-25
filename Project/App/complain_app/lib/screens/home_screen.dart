@@ -33,6 +33,7 @@ class _HomeState extends State<Home> {
           return Scaffold(
             body: Column(
               children: [
+                //SnackBar(content: Text('Sign in succesful')),
                 Padding(
                   padding: const EdgeInsets.all(29.0),
                   child: CircleAvatar(

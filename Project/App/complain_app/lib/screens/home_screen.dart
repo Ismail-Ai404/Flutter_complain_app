@@ -28,37 +28,33 @@ class _HomeState extends State<Home> {
             child: Text('Something went wrong'),
           );
         } else if (snapshot.hasData) {
-          //Navigator.of(context).pop(true);
-          // final user = FirebaseAuth.instance.currentUser!;
-          // return Column(
-          //   children: [
-          //     Padding(
-          //       padding: const EdgeInsets.all(29.0),
-          //       child: CircleAvatar(
-          //         radius: 40,
-          //         backgroundImage: NetworkImage(user.photoURL!),
-          //       ),
-          //     ),
-          //     SizedBox(
-          //       height: 8,
-          //     ),
-          //     Text(
-          //       'Name: ' + user.displayName!,
-          //       style: TextStyle(color: Colors.white, fontSize: 16),
-          //     ),
-          //     SizedBox(
-          //       height: 8,
-          //     ),
+          Navigator.of(context).pop(true);
+          final user = FirebaseAuth.instance.currentUser!;
           return Scaffold(
-            body: Padding(
-              padding: const EdgeInsets.all(29.0),
-              child: Center(
-                child: ElevatedButton(
-                  child: Text('Make a Complaint'),
-                  onPressed: () => Navigator.of(context)
-                      .pushNamed(Home.routeToMakeAComplaint),
+            body: Column(
+              children: [
+                Padding(
+                  padding: const EdgeInsets.all(29.0),
+                  child: CircleAvatar(
+                    radius: 40,
+                    backgroundImage: AssetImage(
+                        'assets/images/avatars/Doodle Avatar-01.svg'),
+                  ),
                 ),
-              ),
+                SizedBox(
+                  height: 8,
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(29.0),
+                  child: Center(
+                    child: ElevatedButton(
+                      child: Text('Make a Complaint'),
+                      onPressed: () => Navigator.of(context)
+                          .pushNamed(Home.routeToMakeAComplaint),
+                    ),
+                  ),
+                ),
+              ],
             ),
           );
 

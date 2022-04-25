@@ -27,13 +27,30 @@ class SendComplainScreen extends StatelessWidget {
         padding: EdgeInsets.all(29.0),
         child: Column(
           children: [
+            SizedBox(
+              height: 20,
+            ),
+            Container(
+              //margin: EdgeInsetsGeometry.infinity,
+              //decoration: BoxDecoration(color: Colors.white60),
+              child: Text(
+                'Complaint Against',
+                style: TextStyle(
+                  fontSize: 20,
+                  color: Colors.amber[600],
+                ),
+              ),
+            ),
             Text('$name'),
             Text('$dept'),
             Text('$id'),
+            SizedBox(
+              height: 90,
+            ),
             ElevatedButton(
                 onPressed: () =>
                     Navigator.of(context).pushNamed(routeComplainToSpeech),
-                child: Text("Speech")),
+                child: Text("Speech Record")),
           ],
           // child: Row(
           //   children: [

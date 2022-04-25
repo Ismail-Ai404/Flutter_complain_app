@@ -16,7 +16,7 @@ class SendComplainScreen extends StatelessWidget {
     final name = routeArgs['name'];
     final id = routeArgs['id'];
     final dept = routeArgs['department'];
-    final imageUrl = routeArgs['imageUrl'];
+    //final imageUrl = routeArgs['imageUrl'];
 
     return Scaffold(
       appBar: AppBar(

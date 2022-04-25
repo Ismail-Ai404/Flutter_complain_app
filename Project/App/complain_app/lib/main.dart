@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_complete_guide/screens/speech_screen.dart';
+//import 'package:flutter_complete_guide/screens/speech_screen.dart';
 //import 'package:flutter_complete_guide/screens/login_screen.dart';
 import 'package:provider/provider.dart';
 
@@ -11,7 +11,7 @@ import './screens/make_complaint_screen.dart';
 import './screens/send_complain_screen.dart';
 import 'package:firebase_core/firebase_core.dart';
 import './screens/tabs_screen.dart';
-import './screens/speech_screen.dart';
+//import './screens/speech_screen.dart';
 //
 //import './screens/tabs_screen.dart';
 
@@ -31,8 +31,6 @@ class MyApp extends StatelessWidget {
       child: MaterialApp(
         title: 'ComplainApp',
         theme: ThemeData(
-          primarySwatch: Colors.purple,
-          accentColor: Colors.blueGrey[900],
           canvasColor: const Color.fromRGBO(255, 254, 229, 1),
           fontFamily: 'Raleway',
           textTheme: ThemeData.light().textTheme.copyWith(
@@ -48,9 +46,11 @@ class MyApp extends StatelessWidget {
                   fontWeight: FontWeight.bold,
                 ),
               ),
+          colorScheme: ColorScheme.fromSwatch(primarySwatch: Colors.purple)
+              .copyWith(secondary: Colors.blueGrey[900]),
         ),
         //home: MakeComplaintScreen(),
-        initialRoute: '/b',
+        initialRoute: '/',
         routes: {
           '/': (context) => AuthScreen(),
           '/b': (context) => TabsScreen(),
@@ -58,7 +58,7 @@ class MyApp extends StatelessWidget {
           Home.routeToMakeAComplaint: (context) => MakeComplaintScreen(2),
           AuthScreen.routeName: (ctx) => TabsScreen(),
           SendComplainScreen.routeName: (ctx) => SendComplainScreen(),
-          SendComplainScreen.routeComplainToSpeech: (context) => SpeechScreen(),
+          // SendComplainScreen.routeComplainToSpeech: (context) => SpeechScreen(),
         },
         //dsjnkjn
       ),

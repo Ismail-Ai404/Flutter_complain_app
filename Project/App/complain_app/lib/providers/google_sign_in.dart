@@ -35,7 +35,7 @@ class GoogleSignInProvider extends ChangeNotifier {
   }
 
   bool checkStatus() {
-    return (_check != null);
+    return (_check);
   }
 
   Future logout() async {

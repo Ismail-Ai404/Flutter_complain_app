@@ -1,30 +1,54 @@
-import 'dart:html';
+// To parse this JSON data, do
+//
+//     final complaints = complaintsFromJson(jsonString);
 
-//import 'package:flutter/foundation.dart';
+import 'dart:convert';
 
-enum Status {
-  Processing,
-  Finished,
-}
+Complaints complaintsFromJson(String str) =>
+    Complaints.fromJson(json.decode(str));
+
+String complaintsToJson(Complaints data) => json.encode(data.toJson());
 
 class Complaints {
-  final String lodgerID;
-  final String reviewID;
-  final String accussedID;
-  final String complaintID;
-  final bool isBehalf;
-  final AudioElement speech;
-  final File evidence;
-  final Status status;
-
-  const Complaints({
-    required this.lodgerID,
-    required this.reviewID,
-    required this.accussedID,
-    required this.complaintID,
-    required this.evidence,
-    required this.isBehalf,
+  Complaints({
+    required this.lodgerId,
+    required this.reviewId,
+    required this.accussedId,
+    required this.complainId,
     required this.speech,
+    required this.evidence,
     required this.status,
+    required this.isBehalf,
   });
+
+  String lodgerId;
+  String reviewId;
+  String accussedId;
+  String complainId;
+  String speech;
+  String evidence;
+  List<String> status;
+  bool isBehalf;
+
+  factory Complaints.fromJson(Map<String, dynamic> json) => Complaints(
+        lodgerId: json["lodgerId"],
+        reviewId: json["reviewId"],
+        accussedId: json["accussedId"],
+        complainId: json["complainId"],
+        speech: json["speech"],
+        evidence: json["evidence"],
+        status: List<String>.from(json["status"].map((x) => x)),
+        isBehalf: json["isBehalf"],
+      );
+
+  Map<String, dynamic> toJson() => {
+        "lodgerId": lodgerId,
+        "reviewId": reviewId,
+        "accussedId": accussedId,
+        "complainId": complainId,
+        "speech": speech,
+        "evidence": evidence,
+        "status": List<dynamic>.from(status.map((x) => x)),
+        "isBehalf": isBehalf,
+      };
 }

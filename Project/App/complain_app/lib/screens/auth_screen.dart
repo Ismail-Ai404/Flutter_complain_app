@@ -1,4 +1,6 @@
 import 'dart:math';
+import '../models/Login.dart';
+import '../providers/login_api.dart';
 
 import 'package:flutter/material.dart';
 //import 'package:flutter_complete_guide/screens/tabs_screen.dart';
@@ -110,7 +112,7 @@ class _AuthCardState extends State<AuthCard> {
   };
   var _isLoading = false;
   final _passwordController = TextEditingController();
-
+  var login = false;
   void _submit() {
     if (!_formKey.currentState!.validate()) {
       // Invalid!
@@ -122,12 +124,19 @@ class _AuthCardState extends State<AuthCard> {
     });
     if (_authMode == AuthMode.Login) {
       // Log user in
+      _login;
+      return;
     } else {
       // Sign user up
     }
     setState(() {
       _isLoading = false;
     });
+  }
+
+  _login() {
+    Future<Login> user = fetchLogin();
+    print(user);
   }
 
   void _switchAuthMode() {
